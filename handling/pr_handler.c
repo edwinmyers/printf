@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   o_handler.c                                        :+:      :+:    :+:   */
+/*   pr_handler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 18:33:32 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/29 15:01:14 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/03/29 13:40:32 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/03/29 13:58:17 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void        o_handler(t_fs *form_string, unsigned long long arg, char **format)
+void			pr_handler(t_fs *form_string, char args, char **format)
 {
-    char* substr;
+	char *temp;
 
-    substr = NULL;
-    u_cast(form_string, &arg);
-    substr = decToOctal(arg);
-    precision_insert(form_string, &substr);
-	if (ft_strchr(form_string->flags, '#') && form_string->precision <= ft_count_digits(arg))
-		substr = ft_strjoin("0", substr);
-    width_insert(form_string, &substr);
-    ft_replace(format, substr);
+	temp = ft_strchr(*format, '%') + 1;
+	while (*temp != '%')
+		temp++;
+	width_insert(form_string, &temp);
+	ft_replace(format, temp);
 }

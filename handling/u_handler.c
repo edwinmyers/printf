@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/28 18:30:14 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/29 14:47:24 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,11 @@ void u_cast(t_fs *form_string, unsigned long long *arg)
 void	u_handler(t_fs *form_string, unsigned long long arg, char **format)
 {
 	char *substr;
-	char sign;
 
 	substr = NULL;
 	u_cast(form_string, &arg);
-	sign = get_sign(form_string, arg);
 	num_insert(&substr, arg, form_string);
 	precision_insert(form_string, &substr);
-	if (sign == '-')
-		add_sign(&substr, '-');
-	else if (sign == '+')
-		add_sign(&substr, '+');
 	width_insert(form_string, &substr);	
 	ft_replace(format, substr);
 }

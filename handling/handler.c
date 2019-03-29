@@ -22,8 +22,8 @@ static void handler_item(va_list *args, t_fs *form_string, char **format)
 		s_handler(form_string, va_arg(*args, char *), format);
 	else if (form_string->type == 'p')
 		p_handler(form_string, va_arg(*args, long long), format);
-	// else if (form_string->type == '%')
-	// 	pr_handler(form_string, va_arg(*args, int), format);
+	else if (form_string->type == '%')
+		pr_handler(form_string, va_arg(*args, int), format);
 }
 
 void handler(va_list *args, t_fs_vector *form_strings, char **format)

@@ -51,19 +51,25 @@ int main()
 
 	// %0+20.25d tests
 
-    printf("orig9: %0+20.25d\n", 0);
-	ft_printf("my f9: %0+20.25d\n", 0);
+    // printf("orig9: %0+20.25d\n", 0);
+	// ft_printf("my f9: %0+20.25d\n", 0);
     // orig8: +0000000000000000000000000
     // my f8: 0000000000000000000000000
 
 
 
-	printf("orig  : %030d\n", -1);
-	ft_printf("my    : %030d\n", -1);
-	printf("orig  : %030.d\n", -1);	
-	ft_printf("my    : %030.d\n", -1);
+	// printf("orig  : %030d\n", -1);
+	// ft_printf("my    : %030d\n", -1);
+	// printf("orig  : %030.d\n", -1);	
+	// ft_printf("my    : %030.d\n", -1);
 
 // my    :                             -1$
 // orig  : -00000000000000000000000000001$
+ft_printf("%25 .5u\n",+255);
+	printf("%25 .5u", +255);
+	// my                      255
+    // orig                  00255 
+	ft_printf("%25-.5d\n",+255);
+	printf("%25-.5d", +255);
     return (0);
 }

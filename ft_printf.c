@@ -36,7 +36,6 @@ int main()
 	i = 4;
 	
 	p = (long long)&i;
-	ft_printf("% 4d\n", +500);
-	printf("% 4d", +500);
-
+	ft_printf("%#5.30o\n",+255);
+	printf("%#5.30o", +255);
 }

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/29 13:37:33 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/29 13:58:06 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ void width_insert(t_fs *form_string, char **substr)
 		width_insert_right(&new_str, *substr, width, c);
 	else
 		width_insert_left(&new_str, *substr, width, c);
-	free(*substr);
+	// free(*substr);
 	*substr = new_str;
 }
 
@@ -178,7 +178,7 @@ void ft_replace(char **str, char *substr)
 	new_str = ft_strjoin(new_str, substr);
 	ft_strdel(&temp);
 	substr = ft_strdup(ft_strchr(*str, '%'));
-	while (*substr && ((!ft_isalpha(substr[i]) || substr[i] == 'h' || substr[i]== 'l' || substr[i] == 'L')))
+	while (substr[i] && ((!ft_isalpha(substr[i]) || substr[i] == 'h' || substr[i]== 'l' || substr[i] == 'L')))
 		i++;
 	temp = new_str;
 	*str = ft_strsub(substr, i + 1, (ft_strchr(substr, '\0') - substr ) - i);
@@ -206,7 +206,7 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 	if(ft_strchr(form_string->flags, ' ') && form_string->width == ft_count_digits(arg))
 		form_string->width += 1;
 	else if (ft_strchr(form_string->flags, ' ') && form_string->width == 0)
-		form_string->width += 2;
+		form_string->width += ft_count_digits(arg) + 1;
 	width_insert(form_string, &substr);	
 	ft_replace(format, substr);
 }
