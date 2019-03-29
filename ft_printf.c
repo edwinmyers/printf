@@ -36,7 +36,7 @@ int main()
 	i = 4;
 	
 	p = (long long)&i;
-	ft_printf("% 1d\n", +5);
-	printf("% 1d", +5);
+	ft_printf("% 4d\n", +500);
+	printf("% 4d", +500);
 
 }
