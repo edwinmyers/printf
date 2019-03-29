@@ -15,53 +15,55 @@
 
 int main()
 {
-    printf("orig:  %hd\n", 4);
-    ft_printf("my func 1:  %hd\n\n", 4);
-    printf("orig:  %hd\n", 0);
-    ft_printf("my func 2:  %hd\n\n", 0);
-    printf("orig:  %hd\n", -1);
-    ft_printf("my func 3:  %hd\n\n", -1);
-    printf("orig:  %hd\n", 10);
-    ft_printf("my func 4:  %hd\n\n", 10);
-    printf("orig:  %hd\n", 256);
-    ft_printf("my func 5:  %hd\n\n", 256);
-    printf("orig:  %hd\n", 999);
-    ft_printf("my func 6:  %hd\n\n", 999);
-    printf("orig:  %hd\n", -999);
-    ft_printf("my func 7:  %hd\n\n", -999);
-    printf("orig:  %hd\n", 9999);
-    ft_printf("my func 8:  %hd\n\n", 9999);
-    printf("orig:  %hd\n", -9999);
-    ft_printf("my func 9:  %hd\n\n", -9999);
-    printf("orig:  %hd\n", 9999999999);
-    ft_printf("my func 10:  %hd\n\n", 9999999999);
-    printf("orig:  %hd\n", 2147483647);
-    ft_printf("my func 11:  %hd\n\n", 2147483647);
-    printf("orig:  %hd\n", -2147483647);
-    ft_printf("my func 12:  %hd\n\n", -2147483647);
-    printf("orig:  %hd\n", 9223372036854775807);
-    ft_printf("my func 13:  %hd\n\n", 9223372036854775807);
-    printf("orig:  %hd\n", -9223372036854775807);
-    ft_printf("my func 14:  %hd\n\n", -9223372036854775807);
-    printf("orig:  %hd\n", NULL);
-    ft_printf("my func 15:  %hd\n\n", NULL);
-    printf("orig:  %hd\n", 'c');
-    ft_printf("my func 16:  %hd\n\n", 'c');
-    printf("orig:  %hd\n", 4 + 4);
-    ft_printf("my func 17:  %hd\n\n", 4 + 4);
-    printf("orig:  %hd\n", 4 * 4);
-    ft_printf("my func 18:  %hd\n\n", 4 * 4);
-    printf("orig:  %hd\n", 2.3);
-    ft_printf("my func 19:  %hd\n\n", 2.3);
-    printf("orig:  %hd\n", 1.0);
-    ft_printf("my func 20:  %hd\n\n", 1.0);
-    printf("orig:  %hd\n", -2.3);
-    ft_printf("my func 21:  %hd\n\n", -2.3);
-    printf("orig:  %hd\n", -1.0);
-    ft_printf("my func 22:  %hd\n\n", -1.0);
-    printf("orig:  %hd\n", 0004);
-    ft_printf("my func 23:  %hd\n\n", 0004);
-    printf("orig:  %hd\n", -0004);
-    ft_printf("my func 24:  %hd\n\n", -0004);
+   // BUGS:
+
+   	// printf("orig: %10d\n", 2.3);
+	// ft_printf("my f: %10d\n\n", 2.3);
+    // printf("orig7: %30.5d\n", "fd");
+	// ft_printf("my f7: %30.5d\n\n", "fd");
+    // printf("orig6: %30.5d\n", -9999999999);
+	// ft_printf("my f6: %30.5d\n\n", -9999999999);
+    // printf("orig4: %30.5d\n", 2.3);
+	// ft_printf("my f4: %30.5d\n\n", 2.3);
+    	// %-+25.5d tests
+	// printf("orig1: %-+25.5d\n", -1);
+	// ft_printf("my f1: %-+25.5d\n", -1);
+	// %020d tests
+
+    // printf("orig1: %020d\n", -1);
+	// ft_printf("my f1: %020d\n", -1);
+    
+	// orig1: -0000000000000000001
+    // my f1: 000000000000000000-1
+    // orig12: -0000000000000213031
+    // my f12: 0000000000000-213031
+
+// %0+20d tests
+	// printf("orig1: %0+20d\n", -1);
+	// ft_printf("my f1: %0+20d\n", -1);
+	// printf("orig2: %0+20d\n", 9999999999);
+	// ft_printf("my f2: %0+20d\n", 9999999999);
+    // orig1: -0000000000000000001
+    // my f1: 00000000000000000-1
+    // orig2: +0000000001410065407
+    // my f2: 00000000+1410065407
+
+
+	// %0+20.25d tests
+
+    printf("orig9: %0+20.25d\n", 0);
+	ft_printf("my f9: %0+20.25d\n", 0);
+    // orig8: +0000000000000000000000000
+    // my f8: 0000000000000000000000000
+
+
+
+	printf("orig  : %030d\n", -1);
+	ft_printf("my    : %030d\n", -1);
+	printf("orig  : %030.d\n", -1);	
+	ft_printf("my    : %030.d\n", -1);
+
+// my    :                             -1$
+// orig  : -00000000000000000000000000001$
     return (0);
 }

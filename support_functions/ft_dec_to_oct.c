@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_dec_to_oct.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/28 13:14:28 by nparker           #+#    #+#             */
-/*   Updated: 2019/03/28 19:58:55 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/03/28 18:32:47 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/03/28 19:07:45 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../ft_printf.h"
 
-void		*ft_memcpy(void *dst, const void *src, size_t n)
-{
-	size_t		i;
-	char		*cdst;
-	const char	*csrc;
+char *decToOctal(unsigned long long n)
+{ 
+    int octalNum[100];
+    int i;
+	char *str;
+	int j;
 
-	cdst = (char*)dst;
-	csrc = (char*)src;
-	i = -1;
-	while (++i < n)
-		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
-	return (dst);
+	j = 0;
+	i = 0;
+	str = NULL;
+    while (n != 0)
+	{
+        octalNum[i] = n % 8; 
+        n = n / 8; 
+        i++; 
+    }
+	str = ft_strnew(i);
+	while (i--)
+		str[j++] = octalNum[i] + 48;
+	return (str);
 }

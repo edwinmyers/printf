@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/25 17:31:32 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/28 19:04:39 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int             overflow_handle(char *str);
 void            parse(char *format, t_fs_vector *form_strings);
 void			d_handler(t_fs *form_string, long long arg, char **format);
 void			i_handler(t_fs *form_string, long long arg, char **format);
-void			o_handler(t_fs *form_string, long long arg, char **format);
-void			u_handler(t_fs *form_string, long long arg, char **format);
+void			o_handler(t_fs *form_string, unsigned  long long arg, char **format);
+void			u_handler(t_fs *form_string, unsigned long long arg, char **format);
 void			x_handler(t_fs *form_string, long long arg, char **format);
 void			xx_handler(t_fs *form_string, long long arg, char **format);
 void			f_handler(t_fs *form_string, long double arg, char **format);
@@ -46,6 +46,15 @@ void            prepare_item(t_fs *form_string);
 char            get_sign(t_fs *form_string, long long arg);
 void            width_insert(t_fs *form_string, char **substr);
 void            ft_replace(char **str, char *substr);
+void 			precision_insert(t_fs *form_string, char **substr);
+void 			width_insert_left(char **new_str, char *substr, int width, char c);
+void 			width_insert_right(char **new_str, char *substr, int width, char c);
+void 			add_sign(char **str, char sign);
+void 			num_insert(char **substr, long long arg, t_fs *form_string);
+void			u_cast(t_fs *form_string, unsigned long long *arg);
+char			*decToOctal(unsigned long long n);
+
+
 
 
 

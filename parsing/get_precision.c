@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:42:44 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/25 13:46:56 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/28 15:54:10 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int get_precision(char **str)
 
 	str_precision = NULL;
 	if (**str != '.')
-		return (0);
+		return (-1);
 	(*str)++;
 	if (**str == '-')
 		return (0);

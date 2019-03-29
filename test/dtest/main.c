@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 15:02:16 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/25 15:53:27 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/26 15:46:00 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,53 +64,53 @@ int main()
 
 	// lld tests
 
-	printf("orig:  %lld\n", 4);
+	printf("orig:       %lld\n", 4);
     ft_printf("my func 1:  %lld\n", 4);
-    printf("orig:  %lld\n", 0);
+    printf("orig:       %lld\n", 0);
     ft_printf("my func 2:  %lld\n", 0);
-    printf("orig:  %lld\n", -1);
+    printf("orig:       %lld\n", -1);
     ft_printf("my func 3:  %lld\n", -1);
-    printf("orig:  %lld\n", 10);
+    printf("orig:       %lld\n", 10);
     ft_printf("my func 4:  %lld\n", 10);
-    printf("orig:  %lld\n", 256);
+    printf("orig:       %lld\n", 256);
     ft_printf("my func 5:  %lld\n", 256);
-    printf("orig:  %lld\n", 999);
+    printf("orig:       %lld\n", 999);
     ft_printf("my func 6:  %lld\n", 999);
-    printf("orig:  %lld\n", -999);
+    printf("orig:       %lld\n", -999);
     ft_printf("my func 7:  %lld\n", -999);
-    printf("orig:  %lld\n", 9999);
+    printf("orig:       %lld\n", 9999);
     ft_printf("my func 8:  %lld\n", 9999);
-    printf("orig:  %lld\n", -9999);
+    printf("orig:       %lld\n", -9999);
     ft_printf("my func 9:  %lld\n", -9999);
-    printf("orig:  %lld\n", 9999999999);
+    printf("orig:        %lld\n", 9999999999);
     ft_printf("my func 10:  %lld\n", 9999999999);
-    printf("orig:  %lld\n", 2147483647);
+    printf("orig:        %lld\n", 2147483647);
     ft_printf("my func 11:  %lld\n", 2147483647);
-    printf("orig:  %lld\n", -2147483647);
+    printf("orig:        %lld\n", -2147483647);
     ft_printf("my func 12:  %lld\n", -2147483647);
-    printf("orig:  %lld\n", 9223372036854775807);
+    printf("orig:        %lld\n", 9223372036854775807);
     ft_printf("my func 13:  %lld\n", 9223372036854775807);
-    printf("orig:  %lld\n", -9223372036854775807);
+    printf("orig:        %lld\n", -9223372036854775807);
     ft_printf("my func 14:  %lld\n", -9223372036854775807);
-    printf("orig:  %lld\n", NULL);
+    printf("orig:        %lld\n", NULL);
     ft_printf("my func 15:  %lld\n", NULL);
-    printf("orig:  %lld\n", 'c');
+    printf("orig:        %lld\n", 'c');
     ft_printf("my func 16:  %lld\n", 'c');
-    printf("orig:  %lld\n", 4 + 4);
+    printf("orig:        %lld\n", 4 + 4);
     ft_printf("my func 17:  %lld\n", 4 + 4);
-    printf("orig:  %lld\n", 4 * 4);
+    printf("orig:        %lld\n", 4 * 4);
     ft_printf("my func 18:  %lld\n", 4 * 4);
-    printf("orig:  %lld\n", 2.3);
+    printf("orig:        %lld\n", 2.3);
     ft_printf("my func 19:  %lld\n", 2.3);
-    printf("orig:  %lld\n", 1.0);
+    printf("orig:        %lld\n", 1.0);
     ft_printf("my func 20:  %lld\n", 1.0);
-    printf("orig:  %lld\n", -2.3);
+    printf("orig:        %lld\n", -2.3);
     ft_printf("my func 21:  %lld\n", -2.3);
-    printf("orig:  %lld\n", -1.0);
+    printf("orig:        %lld\n", -1.0);
     ft_printf("my func 22:  %lld\n", -1.0);
-    printf("orig:  %lld\n", 0004);
+    printf("orig:        %lld\n", 0004);
     ft_printf("my func 23:  %lld\n", 0004);
-    printf("orig:  %lld\n", -0004);
+    printf("orig:        %lld\n", -0004);
     ft_printf("my func 24:  %lld\n", -0004);
 
 
@@ -213,6 +213,215 @@ int main()
     printf("orig:  %hd\n", -0004);
     ft_printf("my func 24:  %hd\n\n", -0004);
 
+
+
+	// %.3d tests
+	printf("orig: %.3d\n", -1);
+	ft_printf("my func: %.3d\n\n", -1);
+	printf("orig: %.3d\n", 99999999);
+	ft_printf("my func: %.3d\n\n", 99999999);
+	printf("orig: %.3d\n", 1);
+	ft_printf("my func: %.3d\n\n", 1);
+	printf("orig: %.3d\n", 2.3);
+	ft_printf("my func: %.3d\n\n", 2.3);
+	printf("orig: %.3d\n", 'c');
+	ft_printf("my func: %.3d\n\n", 'c');
+	printf("orig: %.3d\n", -99999999);
+	ft_printf("my func: %.3d\n\n", -99999999);
+	printf("orig: %.3d\n", "fd");
+	ft_printf("my func: %.3d\n\n", "fd");
+	printf("orig: %.3d\n", NULL);
+	ft_printf("my func: %.3d\n\n", NULL);
+	printf("orig: %.3d\n", 0);
+	ft_printf("my func: %.3d\n\n", 0);
+
+    	// %-.20d tests
+	printf("orig: %-.20d\n", -1);
+	ft_printf("my f: %-.20d\n\n", -1);
+	printf("orig: %-.20d\n", 9999999999);
+	ft_printf("my f: %-.20d\n\n", 9999999999);
+	printf("orig: %-.20d\n", 1);
+	ft_printf("my f: %-.20d\n\n", 1);
+	printf("orig: %-.20d\n", 2.3);
+	ft_printf("my f: %-.20d\n\n", 2.3);
+	printf("orig: %-.20d\n", 'c');
+	ft_printf("my f: %-.20d\n\n", 'c');
+	printf("orig: %-.20d\n", -9999999999);
+	ft_printf("my f: %-.20d\n\n", -9999999999);
+	printf("orig: %-.20d\n", "fd");
+	ft_printf("my f: %-.20d\n\n", "fd");
+	printf("orig: %-.20d\n", NULL);
+	ft_printf("my f: %-.20d\n\n", NULL);
+	printf("orig: %-.20d\n", 0);
+	ft_printf("my f: %-.20d\n\n", 0);
+
+
+	// %25d tests
+
+printf("orig1: %25d\n", -1);
+	ft_printf("my f1: %25d\n\n", -1);
+	printf("orig2: %25d\n", 9999999999);
+	ft_printf("my f2: %25d\n\n", 9999999999);
+	printf("orig3: %25d\n", 1);
+	ft_printf("my f3: %25d\n\n", 1);
+	printf("orig4: %25d\n", 2.3);
+	ft_printf("my f4: %25d\n\n", 2.3);
+	printf("orig5: %25d\n", 'c');
+	ft_printf("my f5: %25d\n\n", 'c');
+	printf("orig6: %25d\n", -9999999999);
+	ft_printf("my f6: %25d\n\n", -9999999999);
+	printf("orig7: %25d\n", "fd");
+	ft_printf("my f7: %25d\n\n", "fd");
+	printf("orig8: %25d\n", NULL);
+	ft_printf("my f8: %25d\n\n", NULL);
+	printf("orig9: %25d\n", 0);
+	ft_printf("my f9: %25d\n\n", 0);
+	printf("orig10: %25d\n", 2 * 8);
+	ft_printf("my f10: %25d\n\n", 2 * 8);
+	printf("orig11: %25d\n", 8 + 99);
+	ft_printf("my f11: %25d\n\n", 8 + 99);
+	printf("orig12: %25d\n", 92 - 213123);
+	ft_printf("my f12: %25d\n\n", 92 - 213123);
+	printf("orig13: %25d\n", 2000 / 10);
+	ft_printf("my f13: %25d\n\n", 2000 / 10);
+
+    	// %6.20d tests
+	printf("orig1: %6.20d\n", -1);
+	ft_printf("my f1: %6.20d\n\n", -1);
+	printf("orig2: %6.20d\n", 9999999999);
+	ft_printf("my f2: %6.20d\n\n", 9999999999);
+	printf("orig3: %6.20d\n", 1);
+	ft_printf("my f3: %6.20d\n\n", 1);
+	printf("orig4: %6.20d\n", 2.3);
+	ft_printf("my f4: %6.20d\n\n", 2.3);
+	printf("orig5: %6.20d\n", 'c');
+	ft_printf("my f5: %6.20d\n\n", 'c');
+	printf("orig6: %6.20d\n", -9999999999);
+	ft_printf("my f6: %6.20d\n\n", -9999999999);
+	printf("orig7: %6.20d\n", "fd");
+	ft_printf("my f7: %6.20d\n\n", "fd");
+	printf("orig8: %6.20d\n", NULL);
+	ft_printf("my f8: %6.20d\n\n", NULL);
+	printf("orig9: %6.20d\n", 0);
+	ft_printf("my f9: %6.20d\n\n", 0);
+	printf("orig10: %6.20d\n", 2 * 8);
+	ft_printf("my f10: %6.20d\n\n", 2 * 8);
+	printf("orig11: %6.20d\n", 8 + 99);
+	ft_printf("my f11: %6.20d\n\n", 8 + 99);
+	printf("orig12: %6.20d\n", 92 - 213123);
+	ft_printf("my f12: %6.20d\n\n", 92 - 213123);
+	printf("orig13: %6.20d\n", 2000 / 10);
+	ft_printf("my f13: %6.20d\n\n", 2000 / 10);
+
+    // %25.5d tests
+	printf("orig1: %25.5d\n", -1);
+	ft_printf("my f1: %25.5d\n\n", -1);
+	printf("orig2: %25.5d\n", 9999999999);
+	ft_printf("my f2: %25.5d\n\n", 9999999999);
+	printf("orig3: %25.5d\n", 1);
+	ft_printf("my f3: %25.5d\n\n", 1);
+	printf("orig4: %25.5d\n", 2.3);
+	ft_printf("my f4: %25.5d\n\n", 2.3);
+	printf("orig5: %25.5d\n", 'c');
+	ft_printf("my f5: %25.5d\n\n", 'c');
+	printf("orig6: %25.5d\n", -9999999999);
+	ft_printf("my f6: %25.5d\n\n", -9999999999);
+	printf("orig7: %25.5d\n", "fd");
+	ft_printf("my f7: %25.5d\n\n", "fd");
+	printf("orig8: %25.5d\n", NULL);
+	ft_printf("my f8: %25.5d\n\n", NULL);
+	printf("orig9: %25.5d\n", 0);
+	ft_printf("my f9: %25.5d\n\n", 0);
+	printf("orig10: %25.5d\n", 2 * 8);
+	ft_printf("my f10: %25.5d\n\n", 2 * 8);
+	printf("orig11: %25.5d\n", 8 + 99);
+	ft_printf("my f11: %25.5d\n\n", 8 + 99);
+	printf("orig12: %25.5d\n", 92 - 213123);
+	ft_printf("my f12: %25.5d\n\n", 92 - 213123);
+	printf("orig13: %25.5d\n", 2000 / 10);
+	ft_printf("my f13: %25.5d\n\n", 2000 / 10);
+// %-25.5d tests
+	printf("orig1: %-25.5d\n", -1);
+	ft_printf("my f1: %-25.5d\n", -1);
+	printf("orig2: %-25.5d\n", 9999999999);
+	ft_printf("my f2: %-25.5d\n", 9999999999);
+	printf("orig3: %-25.5d\n", 1);
+	ft_printf("my f3: %-25.5d\n", 1);
+	printf("orig4: %-25.5d\n", 2.3);
+	ft_printf("my f4: %-25.5d\n", 2.3);
+	printf("orig5: %-25.5d\n", 'c');
+	ft_printf("my f5: %-25.5d\n", 'c');
+	printf("orig6: %-25.5d\n", -9999999999);
+	ft_printf("my f6: %-25.5d\n", -9999999999);
+	printf("orig7: %-25.5d\n", "fd");
+	ft_printf("my f7: %-25.5d\n", "fd");
+	printf("orig8: %-25.5d\n", NULL);
+	ft_printf("my f8: %-25.5d\n", NULL);
+	printf("orig9: %-25.5d\n", 0);
+	ft_printf("my f9: %-25.5d\n", 0);
+	printf("orig10: %-25.5d\n", 2 * 8);
+	ft_printf("my f10: %-25.5d\n", 2 * 8);
+	printf("orig11: %-25.5d\n", 8 + 99);
+	ft_printf("my f11: %-25.5d\n", 8 + 99);
+	printf("orig12: %-25.5d\n", 92 - 213123);
+	ft_printf("my f12: %-25.5d\n", 92 - 213123);
+	printf("orig13: %-25.5d\n", 2000 / 10);
+	ft_printf("my f13: %-25.5d\n", 2000 / 10);
+    // %0.5d tests
+	printf("orig1: %0.5d\n", -1);
+	ft_printf("my f1: %0.5d\n", -1);
+	printf("orig2: %0.5d\n", 9999999999);
+	ft_printf("my f2: %0.5d\n", 9999999999);
+	printf("orig3: %0.5d\n", 1);
+	ft_printf("my f3: %0.5d\n", 1);
+	printf("orig4: %0.5d\n", 2.3);
+	ft_printf("my f4: %0.5d\n", 2.3);
+	printf("orig5: %0.5d\n", 'c');
+	ft_printf("my f5: %0.5d\n", 'c');
+	printf("orig6: %0.5d\n", -9999999999);
+	ft_printf("my f6: %0.5d\n", -9999999999);
+	printf("orig7: %0.5d\n", "fd");
+	ft_printf("my f7: %0.5d\n", "fd");
+	printf("orig8: %0.5d\n", NULL);
+	ft_printf("my f8: %0.5d\n", NULL);
+	printf("orig9: %0.5d\n", 0);
+	ft_printf("my f9: %0.5d\n", 0);
+	printf("orig10: %0.5d\n", 2 * 8);
+	ft_printf("my f10: %0.5d\n", 2 * 8);
+	printf("orig11: %0.5d\n", 8 + 99);
+	ft_printf("my f11: %0.5d\n", 8 + 99);
+	printf("orig12: %0.5d\n", 92 - 213123);
+	ft_printf("my f12: %0.5d\n", 92 - 213123);
+	printf("orig13: %0.5d\n", 2000 / 10);
+	ft_printf("my f13: %0.5d\n", 2000 / 10);
+
+    // %0+20.25d tests
+	printf("orig1: %0+20.25d\n", -1);
+	ft_printf("my f1: %0+20.25d\n", -1);
+	printf("orig2: %0+20.25d\n", 9999999999);
+	ft_printf("my f2: %0+20.25d\n", 9999999999);
+	printf("orig3: %0+20.25d\n", 1);
+	ft_printf("my f3: %0+20.25d\n", 1);
+	printf("orig4: %0+20.25d\n", 2.3);
+	ft_printf("my f4: %0+20.25d\n", 2.3);
+	printf("orig5: %0+20.25d\n", 'c');
+	ft_printf("my f5: %0+20.25d\n", 'c');
+	printf("orig6: %0+20.25d\n", -9999999999);
+	ft_printf("my f6: %0+20.25d\n", -9999999999);
+	printf("orig7: %0+20.25d\n", "fd");
+	ft_printf("my f7: %0+20.25d\n", "fd");
+	printf("orig8: %0+20.25d\n", NULL);
+	ft_printf("my f8: %0+20.25d\n", NULL);
+	printf("orig9: %0+20.25d\n", 0);
+	ft_printf("my f9: %0+20.25d\n", 0);
+	printf("orig10: %0+20.25d\n", 2 * 8);
+	ft_printf("my f10: %0+20.25d\n", 2 * 8);
+	printf("orig11: %0+20.25d\n", 8 + 99);
+	ft_printf("my f11: %0+20.25d\n", 8 + 99);
+	printf("orig12: %0+20.25d\n", 92 - 213123);
+	ft_printf("my f12: %0+20.25d\n", 92 - 213123);
+	printf("orig13: %0+20.25d\n", 2000 / 10);
+	ft_printf("my f13: %0+20.25d\n", 2000 / 10);
     return (0);
 
 

@@ -1,13 +1,13 @@
 /* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 13:28:29 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/25 17:00:16 by vice-wra         ###   ########.fr       */
-/*                                                                            */
+/*                                                                                        */
+/*                                                                 :::       ::::::::   */
+/*   ft_printf.c                                              :+:       :+:    :+:   */
+/*                                                            +:+ +:+          +:+     */
+/*   By: vice-wra <vice-wra@student.42.fr>           +#+  +:+        +#+         */
+/*                                                        +#+#+#+#+#+   +#+            */
+/*   Created: 2019/03/18 13:28:29 by jblue-da           #+#    #+#               */
+/*   Updated: 2019/03/26 15:44:44 by vice-wra          ###   ########.fr        */
+/*                                                                                        */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
@@ -27,11 +27,16 @@ int					ft_printf(char *format, ...)
 	write(1, format, len);
 	return ((int)len);
 }
+
 #include <stdio.h>
 int main()
 {
-
-	printf("%X\n", 18);
-	ft_printf("%-.5x\n", 5);
+	int i;
+	long long p;
+	i = 4;
 	
+	p = (long long)&i;
+	ft_printf("% 1d\n", +5);
+	printf("% 1d", +5);
+
 }
