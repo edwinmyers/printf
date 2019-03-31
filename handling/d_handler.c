@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/30 13:15:33 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/31 15:47:36 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,8 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 	cast(form_string, &arg);
 	sign = get_sign(form_string, arg);
 	num_insert(&substr, arg, form_string);
-	precision_insert(form_string, &substr);
+	if (form_string->precision > 0)
+		precision_insert(form_string, &substr);
 	if (sign == '-')
 		add_sign(&substr, '-');
 	else if (sign == '+')
@@ -207,6 +208,8 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 		form_string->width += 1;
 	else if (ft_strchr(form_string->flags, ' ') && form_string->width == 0)
 		form_string->width += ft_count_digits(arg) + 1;
-	width_insert(form_string, &substr);	
+	width_insert(form_string, &substr);
+	if (form_string->precision == 0 && arg == 0)
+		ft_bzero(substr, 1);
 	ft_replace(format, substr);
 }

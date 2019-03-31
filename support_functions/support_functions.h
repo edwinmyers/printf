@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:58:28 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/30 13:28:40 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/31 13:30:00 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int		ft_isalnum(int c);
 char *ft_dec_to_hex(unsigned long long n);
 unsigned int       ft_dec_to_octal(unsigned int nb);
 void ft_toupper(char **str);
+char del_minus(char **str);
 
 
 
