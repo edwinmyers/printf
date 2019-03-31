@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/25 17:03:10 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/28 18:24:34 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/30 13:15:43 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 //     bin = 
 // }
 
-char *ft_dec_to_hex(long long n)
+char *ft_dec_to_hex(unsigned long long n)
 {
     char str[100];
     int temp; 
@@ -75,6 +75,6 @@ char *ft_dec_to_hex(long long n)
 
 // int main()
 // {
-//     printf("%s\n", ft_dec_to_hex(-1));
+//     printf("%s\n", ft_dec_to_hex(0));
 
 // }

@@ -10,10 +10,10 @@ static void handler_item(va_list *args, t_fs *form_string, char **format)
 		o_handler(form_string, va_arg(*args, unsigned int), format);
 	else if (form_string->type == 'u')
 		u_handler(form_string, va_arg(*args, unsigned long long), format);
-	// else if (form_string->type == 'x')
-	// 	x_handler(form_string, va_arg(*args, long long), format);
-	// else if (form_string->type == 'X')
-	// 	xx_handler(form_string, va_arg(*args, long long), format);
+	else if (form_string->type == 'x')
+		x_handler(form_string, va_arg(*args, long long), format);
+	else if (form_string->type == 'X')
+		x_handler(form_string, va_arg(*args, long long), format);
 	// else if (form_string->type == 'f')
 	// 	f_handler(form_string, va_arg(*args, long double), format);
 	else if (form_string->type == 'c')

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:58:28 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/28 18:37:20 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/03/30 13:28:40 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ int		ft_strcmp(const char *s1, const char *s2);
 int     ft_count_digits(int n);
 char    *ft_rev_str(char *str);
 int		ft_isalnum(int c);
-char *ft_dec_to_hex(long long n);
+char *ft_dec_to_hex(unsigned long long n);
 unsigned int       ft_dec_to_octal(unsigned int nb);
+void ft_toupper(char **str);
 
 
 
