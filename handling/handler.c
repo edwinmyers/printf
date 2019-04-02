@@ -29,8 +29,9 @@ static void handler_item(va_list *args, t_fs *form_string, char **format)
 void handler(va_list *args, t_fs_vector *form_strings, char **format)
 {
 	int i;
-
+	char *temp;
 	i = -1;
 	while (++i < fs_vector_length(form_strings))
 		handler_item(args, &form_strings->data[i], format);
+
 }
