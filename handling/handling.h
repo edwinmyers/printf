@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 22:06:52 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/28 13:52:01 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/03 13:41:40 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void			p_handler(t_fs *form_string, long long arg, char **format);
 void			pr_handler(t_fs *form_string, char args, char **format);
 void            handler(va_list *args, t_fs_vector *form_strings, char **format);
 void			precision_insert(t_fs *form_string, char **substr);
+static void handler_item(va_list *args, t_fs *form_string, char **format);
 
 
 #endif

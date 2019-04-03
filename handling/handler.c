@@ -1,6 +1,6 @@
 #include "../ft_printf.h"
 
-static void handler_item(va_list *args, t_fs *form_string, char **format)
+void handler_item(va_list *args, t_fs *form_string, char **format)
 {
 	if (form_string->type == 'd')
 		d_handler(form_string, va_arg(*args, long long), format);
@@ -23,7 +23,7 @@ static void handler_item(va_list *args, t_fs *form_string, char **format)
 	else if (form_string->type == 'p')
 		p_handler(form_string, va_arg(*args, long long), format);
 	else if (form_string->type == '%')
-		pr_handler(form_string, va_arg(*args, int), format);
+		pr_handler(form_string, format);
 }
 
 void handler(va_list *args, t_fs_vector *form_strings, char **format)

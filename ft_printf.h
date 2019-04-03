@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/30 12:56:49 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/03 14:26:09 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include "fs_vector/fs_vector.h"
+#include "char_vector/char_vec.h"
+#include "queue.h"
 
 /* Main function */
 int				ft_printf(char *format, ...);
@@ -39,7 +41,7 @@ void			f_handler(t_fs *form_string, long double arg, char **format);
 void			c_handler(t_fs *form_string, int arg, char **format);
 void			s_handler(t_fs *form_string, char *arg, char **format);
 void			p_handler(t_fs *form_string, long long arg, char **format);
-void			pr_handler(t_fs *form_string, char args, char **format);
+void			pr_handler(t_fs *form_string, char **format);
 void            handler(va_list *args, t_fs_vector *form_strings, char **format);
 void            prepare(t_fs_vector *form_strings);
 void            prepare_item(t_fs *form_string);
@@ -53,7 +55,7 @@ void 			add_sign(char **str, char sign);
 void 			num_insert(char **substr, long long arg, t_fs *form_string);
 void			u_cast(t_fs *form_string, unsigned long long *arg);
 char			*decToOctal(unsigned long long n);
-
+void			handler_item(va_list *args, t_fs *form_string, char **format);
 
 
 

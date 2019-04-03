@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pr_handler.c                                       :+:      :+:    :+:   */
+/*   char_vec.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/29 13:40:32 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/03 14:26:47 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/04/03 13:16:28 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/04/03 13:35:42 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include <stdlib.h>
 
-void ft_pr_replace(char **str, char *substr)
+typedef struct		s_char_vec
 {
+	char			*str;
+	int				size;
+	int				capacity;
+} t_char_vec;
 
-}
-
-
-void			pr_handler(t_fs *form_string, char **format)
-{
-	char *temp;
-
-	temp = ft_strnew(1);
-	*temp = '%';
-	width_insert(form_string, &temp);
-
-	*format = temp;
-}
-
-// %4%
+t_char_vec		ft_cvec_create(int size);
+void		ft_cvec_resize(t_char_vec *v);
+void	ft_cvec_push_back(t_char_vec *v, char elem);
