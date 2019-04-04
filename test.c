@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:51:56 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/03 13:48:09 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 17:17:13 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void get_queue(char *format, t_queue *queue)
 	char *str;
 	int i;
 
-	while (format && ft_strchr(format, '%'))
+	i = 0;
+	while (format[i] && ft_strchr(format + i, '%'))
 	{
-		i = 0;
-		str = ft_strsub(format, 0, ft_strchr(format, '%') - format);
+		str = ft_strsub(format, 0, ft_strchr(format + i, '%') - format);
 		if (*str)
 			queue_push(queue, str);
-		format = ft_strchr(format, '%');
+		i = ft_strchr(format + i, '%') - format;
 		while (format[i] && !ft_isalpha(format[i]))
 		{
 			if (format[i + 1] && format[i + 1] == '%')
@@ -34,9 +34,9 @@ void get_queue(char *format, t_queue *queue)
 			}
 			i++;
 		}
-		str = ft_strsub(format, 0, i + 1);
+		str = ft_strsub(format + i, 0, i + 1);
 		queue_push(queue, str);
-		format = format + i + 1;
+		// format = format + i + 1;
 	}
 	i = 0;
 	while (format[i])

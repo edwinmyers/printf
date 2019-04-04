@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 13:25:17 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/03 18:15:21 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 13:40:16 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ t_char_vec		ft_cvec_create(int size)
 
 void		ft_cvec_resize(t_char_vec *v)
 {
-	int *new_data;
+	char *new_data;
 	int i;
 
 	i = 0;
-	new_data = (int *)malloc(sizeof(int) * v->size + 1);
+	new_data = (char *)malloc(sizeof(char) * v->size + 1);
 	while (i < v->size)
 	{
 		new_data[i] = v->str[i];
@@ -43,6 +43,7 @@ void		ft_cvec_resize(t_char_vec *v)
 		v->str[i] = new_data[i];
 		i++;
 	}
+	free(new_data);
 }
 
 void	ft_cvec_push_back(t_char_vec *v, char elem)

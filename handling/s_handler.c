@@ -6,33 +6,31 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 14:37:33 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/03 14:14:29 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 19:01:41 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static char    *s_get_precision(t_fs *form_string, char **substr)
+void		s_get_precision(t_fs *form_string, char **substr)
 {
-    int i;
-    int    precision;
-    char* new_substr;
+    int		i;
+    int		precision;
+    char	*new_substr;
 
     precision = form_string->precision;
     i = 0;
     new_substr = ft_strnew(precision + 1);
-    while (precision--)
+    while (precision-- && (*substr)[i])
     {
         new_substr[i] = (*substr)[i];
         i++;
     }
-    free(*substr);
-    *substr = ft_strdup(new_substr);
-    free(new_substr);
-    return(*substr);
+    ft_strdel(substr);
+    *substr = new_substr;
 }
 
-static char        *s_get_width(t_fs *form_string,char **substr)
+void	s_get_width(t_fs *form_string,char **substr)
 {
     int i;
     int space;
@@ -43,7 +41,7 @@ static char        *s_get_width(t_fs *form_string,char **substr)
     j = 0;
     len = ft_strlen(*substr);
     i = 0;
-    space = (form_string->width - form_string->precision);
+    space = form_string->width - form_string->precision;
     new_sub = ft_strnew(space + len);
     if (ft_strchr(form_string->flags, '-'))
         width_insert_right(&new_sub, *substr, form_string->width - len, ' ');
@@ -55,7 +53,6 @@ static char        *s_get_width(t_fs *form_string,char **substr)
             new_sub[i++] = ' ';
     }
     *substr = new_sub;
-    return (*substr);
 }
 
 void    s_handler(t_fs *form_string, char *arg, char **format)
@@ -63,8 +60,10 @@ void    s_handler(t_fs *form_string, char *arg, char **format)
     char *substr;
     int i;
 
-    i = 0;
     substr = ft_strdup(arg);
+    i = ft_strlen(substr);
+	if (form_string->precision >= i)
+		form_string->precision = i;
     if (form_string->precision > 0)
         s_get_precision(form_string, &substr);
     if (form_string->width != 0)

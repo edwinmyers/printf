@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sindenis <sindenis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 22:44:53 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/21 22:52:42 by sindenis         ###   ########.fr       */
+/*   Updated: 2019/04/04 18:15:11 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ void ft_strpush(char **str1, char str2)
 	new_str[i] = str2; 
 	new_str[i + 1] = '\0';
 	if (*str1 != NULL)
-		free(*str1);
+		ft_strdel(str1);
 	*str1 = new_str;
 }

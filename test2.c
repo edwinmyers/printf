@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:53:54 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/02 18:29:57 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 16:42:09 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,54 @@
 #include <math.h>
 
 
-int *glue_arrs(int *arr1, int *arr2)
+int *glue_to_arr(int *arr1, int *arr2, int len1, int len2)
+{
+    int i;
+    int j;
+    int *new_arr;
+
+    new_arr = (int*)malloc(sizeof(int) * (len1 + len2));
+    i = 0;
+    j = 0;
+    while (i < len1)
+    {
+        new_arr[i] = arr1[i];
+        i++;
+    }
+    while (j < len2)
+    {
+        new_arr[i] = arr2[j];
+        i++;
+        j++;
+    }
+    return (new_arr);
+}
+
+int *glue_arrs(int *arr1, int *arr2, int len1, int len2)
 {
 	int *arr3;
+	int i;
+	int len;
 
-	arr3 = (int*)ft_memalloc(52);
+	len = 63;
+	i = 0;
+	arr3 = (int*)ft_memalloc(sizeof(int) * len);
+
+	while (len2 >= 0 && len > 0)
+	{
+		arr3[len] = arr2[len2];
+		len2--;
+		len--;
+	}
+	while (len1 >= 0 && len > 0)
+	{
+		arr3[len] = arr1[len1];
+		len1--;
+		len--;
+	}
+	while (len >= 0)
+		arr3[len--] = 0;
+	return (arr3);
 }
 
 int count_bin_digits(long long n)
@@ -34,6 +77,7 @@ int count_bin_digits(long long n)
 	}
 	return (i);
 }
+
 int* get_the_rem(double n, int precision)
 {
 	int *arr;
@@ -45,7 +89,7 @@ int* get_the_rem(double n, int precision)
 	while (i < precision)
 	{
 		n = n * 2;
-		if ((int)n % 2 == 0)
+		if ((long long)n % 2 == 0)
 			arr[i] = 0;
 		else
 			arr[i] = 1;
@@ -57,9 +101,13 @@ int* get_the_rem(double n, int precision)
 void get_the_rev_rem(int **arr, int size)
 {
 	int i;
+	int len;
 
+	len = 11;
 	i = 0;
-	while (i < size)
+	while (i < len - size)
+		(*arr)[i++] = 0;
+	while (i < len)
 	{
 		if ((*arr)[i] == 0)
 			(*arr)[i] = 1;
@@ -95,36 +143,45 @@ int *float_to_bin(double n)
 {
 	int i;
 	int *arr;
-	long long nb;
 	double rem;
+	int len;
+	int *arr2;
 
-	i = 0;
-	int len = count_bin_digits(n);
+	len = count_bin_digits(n);
+	i = len;
 	arr = (int*)malloc(sizeof(int) * len);
-	nb = n;
-	rem = n - nb;
-	while (len-- && nb > 0)
+	rem = n - (long long)n;
+	while (len-- && n > 0)
 	{
-		if (nb % 2 == 0)
+		if ((int)n % 2 == 0)
 			arr[len] = 0;
 		else
 			arr[len] = 1;
-		nb = nb / 2;
+		n = n / 2;
 	}
+	arr2 = get_the_rem(rem, 11);
+	// i = 0;
+	// while (i < 11)
+	// {
+	// 	printf("%d", arr2[i++]);
+	// }
+	arr = glue_arrs(arr, arr2, i - 1, 10);
+	get_the_rev_rem(&arr2, 11);
+	arr2 = add_one(arr2, 11);
+	arr = glue_to_arr(arr2, arr, 11, 52);
 	return (arr);
 
 }
 
-//       000000101
 int main()
 {
 	double n;
 	int *arr;
 	n = 5;
 	int i = 0;
-	int len = count_bin_digits(999999999999); 
-	arr = float_to_bin(999999999999.5);
-	// arr = get_the_rem(0.5);
+	int len = 63; 
+	arr = float_to_bin(64.5);
+	// arr = get_the_rem(64.5, 6);
 	// get_the_rev_rem(&arr, 8);
 	// arr = add_one(arr, 8);
 
@@ -132,4 +189,5 @@ int main()
 	{
 		printf("%d", arr[i++]);
 	}
+	// printf("\n%llf", 9999999999999999999);
 }

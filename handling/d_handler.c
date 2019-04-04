@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/04 13:35:39 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 18:39:23 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void add_sign(char **str, char sign)
 	new_str[0] = sign;
 	while (++i < len)
 		new_str[i] = (*str)[i - 1];
+	ft_strdel(str);
 	*str = new_str;
 }
 
@@ -81,10 +82,9 @@ void precision_insert(t_fs *form_string, char **substr)
     }
 	tempfree = temp;
 	temp = ft_strjoin(tempfree, *substr);
-    free (*substr);
+    ft_strdel(substr);
 	ft_strdel(&tempfree);
-    *substr = ft_strdup(temp);
-	ft_strdel(&temp);
+    *substr = temp;
 }
 
 void width_insert_left(char **new_str, char *substr, int width, char c)
@@ -147,13 +147,14 @@ void width_insert(t_fs *form_string, char **substr)
 		{
 			width_insert_left(&new_str, *substr, 1, ' ');
 			width--;
+			ft_strdel(substr);
 			*substr = ft_strdup(new_str);
 		}
 		width_insert_right(&new_str, *substr, width, c);
 	}
 	else
 		width_insert_left(&new_str, *substr, width, c);
-	// free(*substr);
+	ft_strdel(substr);
 	*substr = new_str;
 }
 
