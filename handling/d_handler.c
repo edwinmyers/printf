@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/03/31 15:47:36 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/03 18:27:57 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,11 @@ void num_insert(char **substr, long long arg, t_fs *form_string)
 void precision_insert(t_fs *form_string, char **substr)
 {
 	int        i;
-    int        j;
+	char 	*tempfree;
     char    *temp;
-    int        len;
+    int       len;
 
     i = 0;
-    j = 0;
     len = ft_strlen(*substr);
     temp = ft_strnew(form_string->precision + 1);
     while (i < form_string->precision - len)
@@ -80,15 +79,12 @@ void precision_insert(t_fs *form_string, char **substr)
         temp[i] = '0';
         i++;
     }
-    while (len--)
-    {
-        temp[i] = (*substr)[j];
-        i++;
-        j++;
-    }
-    free(*substr);
+	tempfree = temp;
+	temp = ft_strjoin(tempfree, *substr);
+    free (*substr);
+	ft_strdel(&tempfree);
     *substr = ft_strdup(temp);
-    free(temp);
+	ft_strdel(&temp);
 }
 
 void width_insert_left(char **new_str, char *substr, int width, char c)
@@ -98,7 +94,7 @@ void width_insert_left(char **new_str, char *substr, int width, char c)
 
     i = 0;
 	sign = -1;
-	if (c == '0' && !ft_isalnum(*substr))
+	if (c == '0' && !ft_isalnum(*substr) && *substr != '%')
 		sign = del_minus(&substr);
     while (width-- > 0)
         (*new_str)[i++] = c;
@@ -118,7 +114,7 @@ void width_insert_right(char **new_str, char *substr, int width, char c)
 	char sign;
 
     i = 0;
-	if (c == '0' && !ft_isalnum(*substr))
+	if (c == '0' && !ft_isalnum(*substr) && *substr != '%')
 		sign = del_minus(&substr);
     while (*substr)
         (*new_str)[i++] = *substr++;
@@ -211,5 +207,5 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 	width_insert(form_string, &substr);
 	if (form_string->precision == 0 && arg == 0)
 		ft_bzero(substr, 1);
-	ft_replace(format, substr);
+	*format = substr;
 }

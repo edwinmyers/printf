@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/29 14:47:24 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/03 17:42:34 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ void	u_handler(t_fs *form_string, unsigned long long arg, char **format)
 	num_insert(&substr, arg, form_string);
 	precision_insert(form_string, &substr);
 	width_insert(form_string, &substr);	
-	ft_replace(format, substr);
+	*format = substr;
 }

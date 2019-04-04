@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 12:55:41 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/03/30 13:32:29 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/03 17:42:41 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,5 @@ void			x_handler(t_fs *form_string, unsigned long long arg, char **format)
     width_insert(form_string, &substr);
 	if (form_string->type == 'X')
 		ft_toupper(&substr);
-    ft_replace(format, substr);
+    *format = substr;
 }

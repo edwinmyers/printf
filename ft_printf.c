@@ -70,7 +70,10 @@ void decide(t_queue *q, t_char_vec *cvec, va_list *args)
 			while (str[j])
 				ft_cvec_push_back(cvec, str[j++]);
 		}
+		free(str);
+		cvec->str[cvec->size] = 0;
 	}
+
 }
 
 
@@ -85,7 +88,6 @@ int					ft_printf(char *format, ...)
 	get_queue(format, &queue);
 	cvec = ft_cvec_create(ft_strlen(queue.tail->data));
 	decide(&queue, &cvec, &args);
-	
 	write(1, cvec.str, cvec.size);
 	return ((int)0);
 }
@@ -97,11 +99,18 @@ int main()
 	long long p;
 	i = 4;
 	
-	p = (long long)&i;
-	ft_printf("%03d\n", 3);
-	printf("%03d", 3);
+// printf("orig1: %25.5d\n", -1);
+// 	ft_printf("my f1: %25.5d\n\n", -1);
+	printf("orig2: %25.5d\n", 9999999999);
+	ft_printf("my f2: %25.5d\n\n", 9999999999);
+	// printf("orig3: %25.5d\n", 1);
+	// ft_printf("my f3: %25.5d\n\n", 1);
+	// printf("orig4: %25.5d\n", 2.3);
+	// ft_printf("my f4: %25.5d\n\n", 2.3);
+	// printf("orig5: %25.5d\n", 'c');
+	// ft_printf("my f5: %25.5d\n\n", 'c');
+	// printf("orig6: %25.5d\n", -9999999999);
+	// ft_printf("my f6: %25.5d\n\n", -9999999999);
+
 }
 
-// parse(format, &form_strings);
-// 	prepare(&form_strings);
-// 	handler(&args, &form_strings, &format);
