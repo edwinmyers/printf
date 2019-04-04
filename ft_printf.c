@@ -101,8 +101,8 @@ int main()
 	
 // printf("orig1: %25.5d\n", -1);
 // 	ft_printf("my f1: %25.5d\n\n", -1);
-	printf("orig2: %25.5d\n", 9999999999);
-	ft_printf("my f2: %25.5d\n\n", 9999999999);
+	printf("orig2: |% 25.5d|\n", 9999999999);
+	ft_printf("my f2: |% 25.5d|\n\n", 9999999999);
 	// printf("orig3: %25.5d\n", 1);
 	// ft_printf("my f3: %25.5d\n\n", 1);
 	// printf("orig4: %25.5d\n", 2.3);

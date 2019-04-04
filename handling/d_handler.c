@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/03 18:27:57 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/04 13:35:39 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,15 @@ void width_insert(t_fs *form_string, char **substr)
 	if (ft_strchr(form_string->flags, '0'))
 		c = '0';
 	if (ft_strchr(form_string->flags, '-'))
+	{
+		if (ft_strchr(form_string->flags, ' '))
+		{
+			width_insert_left(&new_str, *substr, 1, ' ');
+			width--;
+			*substr = ft_strdup(new_str);
+		}
 		width_insert_right(&new_str, *substr, width, c);
+	}
 	else
 		width_insert_left(&new_str, *substr, width, c);
 	// free(*substr);
@@ -160,29 +168,6 @@ char get_sign(t_fs *form_string, long long arg)
 	else if (arg < 0)
 		sign = '-';
 	return (sign);		
-}
-
-void ft_replace(char **str, char *substr)
-{
-   	char *new_str;
-	int	i;
-	char *temp;
-
-	i = 0;
-	new_str = ft_strsub(*str, 0, ft_strchr(*str, '%') - *str);
-	temp = new_str;
-	new_str = ft_strjoin(new_str, substr);
-	ft_strdel(&temp);
-	substr = ft_strdup(ft_strchr(*str, '%'));
-	while (substr[i] && ((!ft_isalpha(substr[i]) || substr[i] == 'h' || substr[i]== 'l' || substr[i] == 'L')))
-		i++;
-	temp = new_str;
-	*str = ft_strsub(substr, i + 1, (ft_strchr(substr, '\0') - substr ) - i);
-	new_str = ft_strjoin(new_str, *str);
-	ft_strdel(str);
-	ft_strdel(&temp);
-	ft_strdel(&substr);
-	*str = new_str;
 }
 
 void d_handler(t_fs *form_string, long long arg, char **format)
