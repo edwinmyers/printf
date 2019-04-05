@@ -6,74 +6,75 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:51:56 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/04 17:17:13 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/05 18:14:10 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <math.h>
 #include "queue.h"
 
-void get_queue(char *format, t_queue *queue)
+double n_div(double byte, int n)
 {
-	char *str;
-	int i;
-
-	i = 0;
-	while (format[i] && ft_strchr(format + i, '%'))
+	while (n)
 	{
-		str = ft_strsub(format, 0, ft_strchr(format + i, '%') - format);
-		if (*str)
-			queue_push(queue, str);
-		i = ft_strchr(format + i, '%') - format;
-		while (format[i] && !ft_isalpha(format[i]))
-		{
-			if (format[i + 1] && format[i + 1] == '%')
-			{
-				i++;
-				break;
-			}
-			i++;
-		}
-		str = ft_strsub(format + i, 0, i + 1);
-		queue_push(queue, str);
-		// format = format + i + 1;
-	}
-	i = 0;
-	while (format[i])
-		i++;
-	str = ft_strsub(format, 0, i);
-	queue_push(queue, str);
+		byte /= 2;
+		--n;
+	} 
+	return byte;
+}
 
+double n_mult(double byte, int n)
+{
+	while (n)
+	{
+		byte *= 2;
+		--n;
+	} 
+	return byte;
 }
 
 int main()
 {
-	t_queue queue;
-	char *str;
 	int i;
-	t_char_vec cvec;
-	t_fs form_string;
+	int sign;
+	double mantissa;
+	int exponent;
 
-	i = 0;
-	queue_create(&queue);
-	get_queue("sfdsf%dshdihsif%d ", &queue);
-	cvec = ft_cvec_create(ft_strlen(queue.tail->data));
-	// while (i < queue.size)
-	// {
-	// 	if (!ft_strchr(str = queue_pop(queue), '%'))
-	// 	{
-	// 		while (str[i])
-	// 		ft_cvec_push_back(&cvec, str[i++]);
-	// 	}
-	// 	else 
-	// 	{
-	// 		str = queue_pop(queue);
-	// 		get_fs(&str, &form_string);
-	// 		prepare_item(&form_string);
-	// 		handler_item(args, &form_string, &str);
-	// 		while (str[i])
-	// 		ft_cvec_push_back(&cvec, str[i++]);
-	// 	}
-	// }
+	union {
+		double d_num;
+		long long ll_num;
+	} t;
+	
+	t.d_num = 121345678980.654;
 
+	i = 63;
+	exponent = 0;
+	mantissa = 1.0;
+	int n;
+	n = 1;
+	while (i >= 0) {
+		int byte = t.ll_num >> i & 1;
+		printf("%d", byte);
+		if (i == 63)
+			sign = byte;
+		else if (i >= 52)
+			exponent += byte * pow(2, i - 52);
+		else if (i >= 0)
+		{
+			mantissa += n_div(byte, n);
+			n++;
+		}
+		--i;
+	}
+	exponent -= 1023;
+	if (exponent > 0)
+		mantissa = n_mult(mantissa, exponent);
+	else
+		mantissa = n_div(mantissa, abs(exponent));
+
+	
+
+	printf("\n%f", mantissa);
+	printf("\n%f", t.d_num);
 }

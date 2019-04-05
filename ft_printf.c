@@ -105,8 +105,8 @@ int main()
 	long long p;
 	i = 4;
 	
-	ft_printf("|%40.4000s|\n", "hey yo sup");
-	printf("|%40.4000s|", "hey yo sup");
+	ft_printf("|%40.4s|\n", "hey yo sup");
+	printf("|%40.4s|", "hey yo sup");
 
 }
 

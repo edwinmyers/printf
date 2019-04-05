@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 14:37:33 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/04 19:01:41 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/05 16:04:59 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ void		s_get_precision(t_fs *form_string, char **substr)
 
     precision = form_string->precision;
     i = 0;
-    new_substr = ft_strnew(precision + 1);
+    new_substr = ft_strnew(precision);
     while (precision-- && (*substr)[i])
     {
         new_substr[i] = (*substr)[i];
         i++;
     }
-    ft_strdel(substr);
+    // ft_strdel(substr);
     *substr = new_substr;
 }
 
@@ -60,7 +60,7 @@ void    s_handler(t_fs *form_string, char *arg, char **format)
     char *substr;
     int i;
 
-    substr = ft_strdup(arg);
+    substr = arg;
     i = ft_strlen(substr);
 	if (form_string->precision >= i)
 		form_string->precision = i;
