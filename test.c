@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:51:56 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/05 18:14:10 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/08 17:40:10 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int main()
 		long long ll_num;
 	} t;
 	
-	t.d_num = 121345678980.654;
+	t.d_num = 0.45;
 
 	i = 63;
 	exponent = 0;
@@ -75,6 +75,6 @@ int main()
 
 	
 
-	printf("\n%f", mantissa);
-	printf("\n%f", t.d_num);
+	// printf("\n%f", mantissa);
+	printf("\n%.2Lf", t.d_num);
 }

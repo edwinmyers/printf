@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 22:06:52 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/03 13:41:40 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/06 20:34:59 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void			o_handler(t_fs *form_string, long long arg, char **format);
 void			u_handler(t_fs *form_string, long long arg, char **format);
 void			x_handler(t_fs *form_string, long long arg, char **format);
 void			xx_handler(t_fs *form_string, long long arg, char **format);
-void			f_handler(t_fs *form_string, long double arg, char **format);
+void			f_handler(t_fs *form_string, double arg, char **format);
 void			c_handler(t_fs *form_string, char arg, char **format);
 void			s_handler(t_fs *form_string, char *arg, char **format);
 void			p_handler(t_fs *form_string, long long arg, char **format);

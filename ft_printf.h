@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/03 14:26:09 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/07 13:52:18 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void 			num_insert(char **substr, long long arg, t_fs *form_string);
 void			u_cast(t_fs *form_string, unsigned long long *arg);
 char			*decToOctal(unsigned long long n);
 void			handler_item(va_list *args, t_fs *form_string, char **format);
+void			cast(t_fs *form_string, long long *arg);
 
 
 

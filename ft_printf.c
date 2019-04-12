@@ -28,7 +28,7 @@ void get_queue(char *format, t_queue *queue)
 		ft_strdel(&str);
 		temp = format;
 		format = ft_strchr(format, '%');
-		while (format[i] && !ft_isalpha(format[i]))
+		while ((format[i] && !ft_isalpha(format[i])) || (format[i] == 'l' || format[i] == 'L' || format[i] == 'h'))
 		{
 			if (format[i + 1] && format[i + 1] == '%')
 			{
@@ -74,8 +74,8 @@ void decide(t_queue *q, t_char_vec *cvec, va_list *args)
 			while (str[j])
 				ft_cvec_push_back(cvec, str[j++]);
 		}
-		ft_strdel(&str);
 		cvec->str[cvec->size] = 0;
+		ft_strdel(&str);
 	}
 	ft_strdel(&(form_string.flags));
 	if (str)
@@ -104,9 +104,41 @@ int main()
 	int i;
 	long long p;
 	i = 4;
-	
-	ft_printf("|%40.4s|\n", "hey yo sup");
-	printf("|%40.4s|", "hey yo sup");
+	// char *str = ft_strdup("hey yo sup");
+	ft_printf("|% -40.f|\n", -4434.55);
+	printf("|% -40.f|\n", -4434.55);
+	ft_printf("|%.d|\n", 0);
+	printf("|%.d|\n", 0);
+	ft_printf("|%25-.5d|\n",+255);
+	printf("|%25-.5d|\n", +255);
+	ft_printf("|%25 .5u|\n",+255);
+	printf("|%25 .5u|\n", +255);
+	printf("orig  : |%030d|\n", -1);
+	ft_printf("my    : |%030d|\n", -1);
+	printf("orig  : |%030.d|\n", -1);	
+	ft_printf("my    : |%030.d|\n", -1);
+	printf("orig9: |%0+20.25d|\n", 0);
+	ft_printf("my f9: |%0+20.25d|\n", 0);
+	printf("orig1: |%0+20d|\n", -1);
+	ft_printf("my f1: |%0+20d|\n", -1);
+	printf("orig2: |%0+20d|\n", 9999999999);
+	ft_printf("my f2: |%0+20d|\n", 9999999999);
+	printf("orig1: |%020d|\n", -1);
+	ft_printf("my f1: |%020d|\n", -1);
+	printf("orig1: |%-+25.5d|\n", -1);
+	ft_printf("my f1: |%-+25.5d|\n", -1);
+	printf("orig: |%10d|\n", 2.3);
+	ft_printf("my f: |%10d|\n\n", 2.3);
+    printf("orig7: |%30.5d|\n", "fd");
+	ft_printf("my f7: |%30.5d|\n\n", "fd");
+    printf("orig6: |%30.5d|\n", -9999999999);
+	ft_printf("my f6: |%30.5d|\n\n", -9999999999);
+    printf("orig4: |%30.5d|\n", 2.3);
+	ft_printf("my f4: |%30.5d|\n\n", 2.3);
 
+	ft_printf("|% -40.f|\n", -4434.55);
+	printf("|% -40.f|\n", -4434.55);
+	ft_printf("|% -40.f|\n", 4434.55);
+	printf("|% -40.f|", 4434.55);
 }
 
