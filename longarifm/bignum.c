@@ -108,7 +108,8 @@ char mult_frac(t_string s, t_string *res)
 		i++;
 	}
 	str[i] = '0';
-	res->data = str;
+	str[i + 1] = 0;
+	*res = str_create_str(str);
 	return(res1);
 }
 
@@ -126,8 +127,7 @@ void            mult(t_string s, t_string *res, char rem)
 	}
 	str[i] = rem;
 	str[i + 1] = '\0';
-	free (s.data);
-	res->data = str;
+	*res = str_create_str(str);
 }
 
 // t_bignum        bin_minus(t_bignum *l, t_bignum *r)
@@ -164,15 +164,17 @@ char            divide(t_string s, t_string *res)
 	char rem;
 
 	i = 0;
-	str = ft_strnew(s.size - 1);
+	str = ft_strnew(s.size);
 	while (i < s.size - 1)
 	{
 		str[i] = str_at(&s, i);
 		i++;
 	}
-	rem = str_at(&s, i);
-	free (s.data);
-	res->data = str;
+	if (s.size == 1)
+		str[0] = '0';
+	rem = str_at(&s, 0);
+	str[s.size] = 0;
+	*res = str_create_str(str);
 	return (rem);
 }
 
@@ -190,8 +192,8 @@ void            divide_frac(t_string s, t_string *res, char rem)
 		i++;
 	}
 	str[i + 1] = 0;
-	free (s.data);
-	res->data = str;
+	*res = str_create_str(str);
+
 }
 
 t_bignum        bin_divide(t_bignum *l)

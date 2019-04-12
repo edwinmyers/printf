@@ -8,7 +8,7 @@ t_string            str_create_str(char *s)
 
     i = 0;
     len = ft_strlen(s);
-    str.data = (char *)malloc(sizeof(char) * len * 3 / 2);
+    str.data = (char *)malloc(sizeof(char) * len  * 3 / 2);
     str.size = len;
     str.capacity = len * 3 / 2;
 
