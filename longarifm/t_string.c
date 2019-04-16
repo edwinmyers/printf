@@ -81,7 +81,8 @@ void                str_destroy(t_string *s)
 
 void                str_print(t_string *s)
 {
-    ft_putendl(s->data);
+	write(1, s->data, s->size);
+	write(1, "\n", 1);
 }
 
 void                str_rev(t_string *s)

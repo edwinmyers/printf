@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/01 15:51:56 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/08 17:40:10 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:54:46 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,43 +38,41 @@ int main()
 {
 	int i;
 	int sign;
-	double mantissa;
+	char mantissa[53];
 	int exponent;
 
-	union {
-		double d_num;
-		long long ll_num;
-	} t;
 	
-	t.d_num = 0.45;
+	t.d_num = 1.0;
 
 	i = 63;
 	exponent = 0;
-	mantissa = 1.0;
 	int n;
+	int j = 0;
 	n = 1;
+	mantissa[52] = 0;
 	while (i >= 0) {
 		int byte = t.ll_num >> i & 1;
-		printf("%d", byte);
+		// printf("%d", byte);
 		if (i == 63)
 			sign = byte;
 		else if (i >= 52)
 			exponent += byte * pow(2, i - 52);
 		else if (i >= 0)
 		{
-			mantissa += n_div(byte, n);
-			n++;
+			mantissa[j] = byte + 48;
+			j++;
 		}
-		--i;
+		--i;	
 	}
 	exponent -= 1023;
-	if (exponent > 0)
-		mantissa = n_mult(mantissa, exponent);
-	else
-		mantissa = n_div(mantissa, abs(exponent));
+	// if (exponent > 0)
+	// 	mantissa = n_mult(mantissa, exponent);
+	// else
+	// 	mantissa = n_div(mantissa, abs(exponent));
 
 	
-
-	// printf("\n%f", mantissa);
-	printf("\n%.2Lf", t.d_num);
+	printf("%d", exponent);
+	printf("\n%s\n", mantissa);
+	printf("%Lf", t.d_num);
+	// printf("\n%.2Lf", t.d_num);
 }

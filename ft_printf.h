@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/07 13:52:18 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:46:28 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@
 #include "fs_vector/fs_vector.h"
 #include "char_vector/char_vec.h"
 #include "queue.h"
+#include "longarifm/bignum.h"
+
+
+union {
+		long double d_num;
+		long long ll_num;
+	} t;
 
 /* Main function */
 int				ft_printf(char *format, ...);

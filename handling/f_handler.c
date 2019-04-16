@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/07 16:04:28 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:13:47 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,77 +30,101 @@ char f_get_sign(t_fs *form_string, long double arg)
 		sign = '-';
 	return (sign);		
 }
-int ft_count_fdigits(long double n)
+void do_bignum_arithm(t_bignum *num)
 {
-    int i;
+	int i;
+	int j;
+	char c;
+	t_bignum sum;
+	t_bignum a1;
 
-    i = 1;
-    while ((n = n / 10) != 0 && i <= 20)
-        i++;
-    return (i);
+	i = 0;
+	while (i < n3.int_part.size)
+	{
+		j = 0;
+		t_bignum a1;
+		c = n3.int_part.data[i];
+		a1 = big_num_create_by_str('+', &c, "0");
+		while (j++ < n3.int_part.size - i - 1)
+			a1 = dec_mult(&a1);
+		sum = dec_sum(&sum, &a1);
+		++i;
+	}
+	str_print(&sum.int_part);
+	i = 0;
+	sum = big_num_create_by_str('+', "0", "0");
+	while (i < n3.frac_part.size)
+	{
+		j = 0;
+		t_bignum a1;
+		c = n3.frac_part.data[i];
+		a1 = big_num_create_by_str('+', &c, "0");
+		while (j++ <= i)
+			a1 = dec_div(&a1);
+		sum = dec_sum(&sum, &a1);
+		++i;
+	}
 }
 
-// char *ft_ultoa(long double n)
-// {
-// 	char *str;
-// 	int i;
+void process_the_exponent(t_bignum *num, int exponent)
+{
+	int i;
 
-// 	i = 0;
-// 	while (n / 10 != 0)
-// }
+	i = 0;
+	if (exponent > 0)
+		while (i++ < exponent)
+			*num = bin_mult(num);
+	else if (exponent < 0)
+		while (i++ < ft_abs(exponent))
+			*num = bin_divide(num);
+}
+
+t_bignum get_the_bits(double arg)
+{
+	int i;
+	char *mantissa;
+	int byte;
+	t_bignum num;
+	int exponent;
+
+	i = 63;
+	exponent = 0;
+	t.d_num = arg;
+	num = big_num_create_by_str('+', "1", NULL);
+	while (i >= 0) 
+	{
+		byte = t.ll_num >> i & 1;
+		if (i == 63)
+			num.sign = byte + 48;
+		else if (i >= 52)
+			exponent += byte * pow(2, i - 52);
+		else if (i >= 0)
+			str_pushchar(&num.frac_part, byte + 48);
+		--i;	
+	}
+	exponent -= 1023;
+	process_the_exponent(&num, exponent);
+	return (num);
+}
 
 void	f_handler(t_fs *form_string, long double arg, char **format)
 {
 	char *str;
-	double rem;
-	int i;
 	char sign;
-	char *temp;
+	t_bignum num;
 
-	i = 0;
 	f_cast(form_string, &arg);
 	sign = f_get_sign(form_string, arg);
 	if (arg < 0)
 		arg = arg * -1.0;
-	rem = ft_count_fdigits(arg);
-	if (rem < 20)
-		rem = arg - (unsigned long)arg;
 	if (form_string->precision == -1)
 		form_string->precision = 6;
-	if (form_string->precision > 0)
-	{
-		while (i < form_string->precision && i <= 12 && rem < 20)
-		{
-			rem = rem * 10;
-			i++;
-		}
-		str = ft_ltoa(arg);
-		ft_strpush(&str, '.');
-		if ((int)rem % 10 >= 5)
-			rem++;
-		str = ft_strjoin(str, ft_ltoa(rem));
-		if (i > 12)
-		{
-			temp = ft_strnew(form_string->precision - i);
-			while (i < form_string->precision)
-			{
-				temp[i] = '0';
-				i++;
-			}
-			str = ft_strjoin(str, temp);
-		}
-	}
-	else if (rem * 10 >= 5)
-	{	
-		arg++;
-		str = ft_ltoa(arg);
-	}
-	else
-		str = ft_ltoa(arg);
 	if (sign == '-')
 		add_sign(&str, '-');
 	else if (sign == '+')
 		add_sign(&str, '+');
+	num = get_the_bits(arg);
+
 	width_insert(form_string, &str);
 	*format = str;
 }

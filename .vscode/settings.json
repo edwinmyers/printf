@@ -1,5 +1,17 @@
 {
 	"files.associations": {
-		"ft_printf.h": "c"
-	}
+		"ft_printf.h": "c",
+		"bignum.h": "c",
+		"support_functions.h": "c",
+		"t_string.h": "c",
+		"__split_buffer": "c",
+		"deque": "c",
+		"initializer_list": "c",
+		"iterator": "c",
+		"memory": "c",
+		"queue": "c",
+		"utility": "c",
+		"vector": "c"
+	},
+	"C_Cpp.errorSquiggles": "Disabled"
 }
