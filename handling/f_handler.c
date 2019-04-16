@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/16 15:13:47 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:27:45 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ char f_get_sign(t_fs *form_string, long double arg)
 		sign = '-';
 	return (sign);		
 }
-void do_bignum_arithm(t_bignum *num)
+
+void do_int_part(t_bignum *num)
 {
 	int i;
 	int j;
@@ -39,31 +40,51 @@ void do_bignum_arithm(t_bignum *num)
 	t_bignum a1;
 
 	i = 0;
-	while (i < n3.int_part.size)
+	sum = big_num_create_by_str('+', "1", "");
+	while (i < num->int_part.size)
 	{
 		j = 0;
 		t_bignum a1;
-		c = n3.int_part.data[i];
+		c = num->int_part.data[i];
 		a1 = big_num_create_by_str('+', &c, "0");
-		while (j++ < n3.int_part.size - i - 1)
+		while (j++ < num->int_part.size - i - 1)
 			a1 = dec_mult(&a1);
 		sum = dec_sum(&sum, &a1);
 		++i;
 	}
-	str_print(&sum.int_part);
+	num->int_part = sum.int_part;
+}
+
+void do_frac_part(t_bignum *num)
+{
+	int i;
+	int j;
+	char c;
+	t_bignum sum;
+	t_bignum a1;
+
 	i = 0;
 	sum = big_num_create_by_str('+', "0", "0");
-	while (i < n3.frac_part.size)
+	while (i < num->frac_part.size)
 	{
 		j = 0;
 		t_bignum a1;
-		c = n3.frac_part.data[i];
+		c = num->frac_part.data[i];
 		a1 = big_num_create_by_str('+', &c, "0");
 		while (j++ <= i)
 			a1 = dec_div(&a1);
 		sum = dec_sum(&sum, &a1);
 		++i;
 	}
+	num->frac_part = sum.frac_part;
+}
+
+void do_bignum_arithm(t_bignum *num)
+{
+	t_bignum sum;
+	do_int_part(&sum);
+	do_frac_part(&sum);
+	num = &sum;
 }
 
 void process_the_exponent(t_bignum *num, int exponent)
@@ -97,7 +118,7 @@ t_bignum get_the_bits(double arg)
 		if (i == 63)
 			num.sign = byte + 48;
 		else if (i >= 52)
-			exponent += byte * pow(2, i - 52);
+			exponent += byte * ft_pow(2, i - 52);
 		else if (i >= 0)
 			str_pushchar(&num.frac_part, byte + 48);
 		--i;	
@@ -124,7 +145,9 @@ void	f_handler(t_fs *form_string, long double arg, char **format)
 	else if (sign == '+')
 		add_sign(&str, '+');
 	num = get_the_bits(arg);
-
+	do_bignum_arithm(&num);
+	str = ft_strjoin(num.int_part.data, "+");
+	str = ft_strjoin(str, num.frac_part.data);
 	width_insert(form_string, &str);
 	*format = str;
 }

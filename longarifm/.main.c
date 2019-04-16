@@ -13,7 +13,7 @@ int main(void)
 	t_bignum tmp;
 	t_bignum sum;
 
-	sum = big_num_create_by_str('+', "10", "");
+	sum = big_num_create_by_str('+', "1", "");
 	n3 = big_num_create_by_str('+', "1", "0000001001011111110101001111110000011010001111101001");
 	i = 0;
 	while (i++ < 139)

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:58:28 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/04 17:32:05 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:29:44 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ char *ft_dec_to_hex(unsigned long long n);
 unsigned int       ft_dec_to_octal(unsigned int nb);
 void ft_toupper(char **str);
 char del_minus(char **str);
+int		ft_pow(int n, int power);
+int		ft_abs(int c);
+
 
 
 
