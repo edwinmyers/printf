@@ -1,0 +1,1 @@
+gcc ft_printf.c queue.c support_functions/*.c parsing/*.c preparation/*.c handling/*.c fs_vector/*.c char_vector/*.c longarifm/*.c

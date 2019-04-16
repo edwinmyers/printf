@@ -209,8 +209,7 @@ t_bignum        bin_divide(t_bignum *l)
 	t_bignum    res;
     char        rem;
 
-    res.int_part = str_create_size(10);
-    res.frac_part = str_create_size(10);
+    res = big_num_create_by_size(l->sign, 1, 1);
 	rem = divide(l->int_part, &res.int_part);
 	divide_frac(l->frac_part, &res.frac_part, rem);
 	return (res);

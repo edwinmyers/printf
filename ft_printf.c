@@ -105,40 +105,8 @@ int main()
 	long long p;
 	i = 4;
 	// char *str = ft_strdup("hey yo sup");
-	ft_printf("|% -40.f|\n", -4434.55);
-	printf("|% -40.f|\n", -4434.55);
-	ft_printf("|%.d|\n", 0);
-	printf("|%.d|\n", 0);
-	ft_printf("|%25-.5d|\n",+255);
-	printf("|%25-.5d|\n", +255);
-	ft_printf("|%25 .5u|\n",+255);
-	printf("|%25 .5u|\n", +255);
-	printf("orig  : |%030d|\n", -1);
-	ft_printf("my    : |%030d|\n", -1);
-	printf("orig  : |%030.d|\n", -1);	
-	ft_printf("my    : |%030.d|\n", -1);
-	printf("orig9: |%0+20.25d|\n", 0);
-	ft_printf("my f9: |%0+20.25d|\n", 0);
-	printf("orig1: |%0+20d|\n", -1);
-	ft_printf("my f1: |%0+20d|\n", -1);
-	printf("orig2: |%0+20d|\n", 9999999999);
-	ft_printf("my f2: |%0+20d|\n", 9999999999);
-	printf("orig1: |%020d|\n", -1);
-	ft_printf("my f1: |%020d|\n", -1);
-	printf("orig1: |%-+25.5d|\n", -1);
-	ft_printf("my f1: |%-+25.5d|\n", -1);
-	printf("orig: |%10d|\n", 2.3);
-	ft_printf("my f: |%10d|\n\n", 2.3);
-    printf("orig7: |%30.5d|\n", "fd");
-	ft_printf("my f7: |%30.5d|\n\n", "fd");
-    printf("orig6: |%30.5d|\n", -9999999999);
-	ft_printf("my f6: |%30.5d|\n\n", -9999999999);
-    printf("orig4: |%30.5d|\n", 2.3);
-	ft_printf("my f4: |%30.5d|\n\n", 2.3);
+	ft_printf("|% -40f|\n", -12321.55);
+	printf("|% -40f|\n", -12321.55);
 
-	ft_printf("|% -40.f|\n", -4434.55);
-	printf("|% -40.f|\n", -4434.55);
-	ft_printf("|% -40.f|\n", 4434.55);
-	printf("|% -40.f|", 4434.55);
 }
 
