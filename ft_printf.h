@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/18 16:09:24 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/19 15:15:26 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,11 @@
 union 
 {
 	long double d_num;
-	long long ll_num;
 	struct s_double
 	{
-		__uint128_t sign:1;
-		__uint128_t exponent:15;
 		__uint128_t mantissa:64;
+		__uint128_t exponent:15;
+		__uint128_t sign:1;
 	}				t_double;
 }						 t;
 /* Main function */

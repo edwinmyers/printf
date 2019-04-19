@@ -109,8 +109,8 @@ int main()
 	long long p;
 	i = 4;
 	// char *str = ft_strdup("hey yo sup");
-	ft_printf("|%s|\n", "hey");
-	printf("|%s|\n", "hey");
+	ft_printf("|%.3f\n", 1.472);
+	printf("|%.3f", 1.472);
 
 
 }

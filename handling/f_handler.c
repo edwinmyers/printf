@@ -6,13 +6,19 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/18 16:00:33 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:54:57 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char f_get_sign(t_fs *form_string, double arg)
+void f_cast(t_fs *form_string, long double *arg)
+{
+	if (ft_strchr(form_string->size, 'L') == 0)
+		*arg = (double) *arg;
+}
+
+char f_get_sign(t_fs *form_string, long double arg)
 {
 	char sign;
 
@@ -48,6 +54,19 @@ void do_int_part(t_bignum *num)
 	}
 	num->int_part = sum.int_part;
 }
+void rround(t_bignum *num, int precision)
+{
+	t_bignum temp;
+
+	temp = big_num_create_by_size('+', 1, precision);
+	str_pushchar(&temp.int_part, '0');
+	while (precision-- > 1)
+	{
+		str_pushchar(&temp.frac_part, '0');
+	}
+	str_pushchar(&temp.frac_part, '1');
+	*num = dec_sum(num, &temp);
+}
 
 void do_frac_part(t_bignum *num, int precision)
 {
@@ -71,6 +90,8 @@ void do_frac_part(t_bignum *num, int precision)
 		++i;
 	}
 	num->frac_part = cust_strsub(&sum.frac_part, 0, precision);
+	if (precision != num->frac_part.size && num->frac_part.data[precision - 1] == '9')
+		rround(num, precision);
 }
 
 void do_bignum_arithm(t_bignum *num, int precision)
@@ -92,33 +113,26 @@ void process_the_exponent(t_bignum *num, int exponent)
 			*num = bin_divide(num);
 }
 
-t_bignum *get_the_bits(double arg)
+t_bignum *get_the_bits(long double arg)
 {
 	int i;
 	int byte;
 	t_bignum *num;
-	int exponent;
 
-	i = 63;
-	exponent = 0;
-	t.d_num = arg;
+	i = 62;
+	t.d_num = (long double)arg;
 	num = malloc(sizeof(t_bignum));
 	num->frac_part = str_create_size(10);
 	num->int_part = str_create_size(10);
-	str_pushchar(&num->int_part, '1');
-	while (i >= 0) 
+	str_pushchar(&num->int_part, (t.t_double.mantissa >> 63 & 1) + 48);
+	byte = 0;
+	while (i >= 0)
 	{
-		byte = t.ll_num >> i & 1;
-		if (i == 63)
-			num->sign = byte + 48;
-		else if (i >= 52)
-			exponent += byte * ft_pow(2, i - 52);
-		else if (i >= 0)
-			str_pushchar(&num->frac_part, byte + 48);
-		--i;	
+		byte = t.t_double.mantissa >> i & 1;
+		str_pushchar(&num->frac_part, byte + 48);
+		--i;
 	}
-	exponent -= 1023;
-	process_the_exponent(num, exponent);
+	process_the_exponent(num, t.t_double.exponent - 16383);
 	return (num);
 }
 
@@ -129,6 +143,7 @@ void	f_handler(t_fs *form_string, double arg, char **format)
 	t_bignum *num;
 
 	sign = f_get_sign(form_string, arg);
+	// f_cast(form_string, &arg);
 	if (arg < 0)
 		arg = arg * -1.0;
 	if (form_string->precision == -1)
@@ -137,7 +152,6 @@ void	f_handler(t_fs *form_string, double arg, char **format)
 		add_sign(&str, '+');
 	num = get_the_bits(arg);
 	do_bignum_arithm(num, form_string->precision);
-
 	str = ft_strjoin(num->int_part.data, ".");
 	str = ft_strjoin(str, num->frac_part.data);
 	if (sign == '-')
