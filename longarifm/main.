@@ -12,17 +12,17 @@ int main(void)
 	char c;
 	t_bignum tmp;
 	t_bignum sum;
+		t_bignum a1;
 
-	sum = big_num_create_by_str('+', "1", "");
-	n3 = big_num_create_by_str('+', "1", "0000001001011111110101001111110000011010001111101001");
+	sum = big_num_create_by_str('+', "0", "0");
+	n3 = big_num_create_by_str('+', "1", "111101001000110011001100110011001100110011001100110011001100110");
 	i = 0;
-	while (i++ < 139)
+	while (i++ < 19661)
 		n3 = bin_mult(&n3);
 	i = 0;
 	while (i < n3.int_part.size)
 	{
 		j = 0;
-		t_bignum a1;
 		c = n3.int_part.data[i];
 		a1 = big_num_create_by_str('+', &c, "0");
 		while (j++ < n3.int_part.size - i - 1)
@@ -33,10 +33,9 @@ int main(void)
 	str_print(&sum.int_part);
 	i = 0;
 	sum = big_num_create_by_str('+', "0", "0");
-	while (i < n3.frac_part.size)
+	while (i <= n3.frac_part.size)
 	{
 		j = 0;
-		t_bignum a1;
 		c = n3.frac_part.data[i];
 		a1 = big_num_create_by_str('+', &c, "0");
 		while (j++ <= i)
@@ -44,6 +43,6 @@ int main(void)
 		sum = dec_sum(&sum, &a1);
 		++i;
 	}
-	str_print(&sum.int_part);
+	str_print(&sum.frac_part);
     return (0);
 }

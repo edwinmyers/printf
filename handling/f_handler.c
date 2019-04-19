@@ -6,19 +6,13 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/16 17:59:09 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/18 16:00:33 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void f_cast(t_fs *form_string, long double *arg)
-{
-	if (form_string->size == NULL)
-        *arg = (double)*arg;
-}
-
-char f_get_sign(t_fs *form_string, long double arg)
+char f_get_sign(t_fs *form_string, double arg)
 {
 	char sign;
 
@@ -40,7 +34,7 @@ void do_int_part(t_bignum *num)
 	t_bignum a1;
 
 	i = 0;
-	sum = big_num_create_by_str('+', "1", "");
+	sum = big_num_create_by_str('+', "0", "0");
 	while (i < num->int_part.size)
 	{
 		j = 0;
@@ -65,7 +59,7 @@ void do_frac_part(t_bignum *num, int precision)
 
 	i = 0;
 	sum = big_num_create_by_str('+', "0", "0");
-	while (i < precision)
+	while (i < num->frac_part.size)
 	{
 		j = 0;
 		t_bignum a1;
@@ -76,7 +70,7 @@ void do_frac_part(t_bignum *num, int precision)
 		sum = dec_sum(&sum, &a1);
 		++i;
 	}
-	num->frac_part = sum.frac_part;
+	num->frac_part = cust_strsub(&sum.frac_part, 0, precision);
 }
 
 void do_bignum_arithm(t_bignum *num, int precision)
@@ -101,7 +95,6 @@ void process_the_exponent(t_bignum *num, int exponent)
 t_bignum *get_the_bits(double arg)
 {
 	int i;
-	char *mantissa;
 	int byte;
 	t_bignum *num;
 	int exponent;
@@ -129,13 +122,12 @@ t_bignum *get_the_bits(double arg)
 	return (num);
 }
 
-void	f_handler(t_fs *form_string, long double arg, char **format)
+void	f_handler(t_fs *form_string, double arg, char **format)
 {
 	char *str;
 	char sign;
 	t_bignum *num;
 
-	f_cast(form_string, &arg);
 	sign = f_get_sign(form_string, arg);
 	if (arg < 0)
 		arg = arg * -1.0;
@@ -145,6 +137,7 @@ void	f_handler(t_fs *form_string, long double arg, char **format)
 		add_sign(&str, '+');
 	num = get_the_bits(arg);
 	do_bignum_arithm(num, form_string->precision);
+
 	str = ft_strjoin(num->int_part.data, ".");
 	str = ft_strjoin(str, num->frac_part.data);
 	if (sign == '-')

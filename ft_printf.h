@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/16 18:08:40 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/18 16:09:24 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,17 @@
 #include "longarifm/bignum.h"
 
 
-union {
-		double d_num;
-		long long ll_num;
-	} t;
-
+union 
+{
+	long double d_num;
+	long long ll_num;
+	struct s_double
+	{
+		__uint128_t sign:1;
+		__uint128_t exponent:15;
+		__uint128_t mantissa:64;
+	}				t_double;
+}						 t;
 /* Main function */
 int				ft_printf(char *format, ...);
 void            arr_zero(int *arr, int size);
@@ -44,7 +50,7 @@ void			o_handler(t_fs *form_string, unsigned  long long arg, char **format);
 void			u_handler(t_fs *form_string, unsigned long long arg, char **format);
 void			x_handler(t_fs *form_string, unsigned long long arg, char **format);
 void			xx_handler(t_fs *form_string, long long arg, char **format);
-void			f_handler(t_fs *form_string, long double arg, char **format);
+void			f_handler(t_fs *form_string, double arg, char **format);
 void			c_handler(t_fs *form_string, int arg, char **format);
 void			s_handler(t_fs *form_string, char *arg, char **format);
 void			p_handler(t_fs *form_string, long long arg, char **format);
@@ -64,6 +70,7 @@ void			u_cast(t_fs *form_string, unsigned long long *arg);
 char			*decToOctal(unsigned long long n);
 void			handler_item(va_list *args, t_fs *form_string, char **format);
 void			cast(t_fs *form_string, long long *arg);
+t_string		cust_strsub(t_string *str, unsigned int start, size_t len);
 
 
 

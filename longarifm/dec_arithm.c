@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 14:50:00 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/16 14:38:58 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:40:17 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,48 +68,11 @@ t_bignum        dec_mult(t_bignum *n)
     return res;
 }
 
-char            frac_dec_div(t_string n, t_string *res, char rem)
-{
-    int i;
-    char num_res;
-
-    i = str_len(&n) - 1;
-    while (i >= 0)
-    {
-        num_res = (rem + (str_at(&n, i) - '0') / 2) % 10 + '0';
-        rem = (rem + ((str_at(&n, i) - '0') / 2)) / 10;
-        str_pushchar(res, num_res);
-        --i;
-    }
-    str_rev(res);
-    return (rem);
-}
-
-char            int_dec_div(t_string n, t_string *res)
-{
-    int i;
-    char num_res;
-    int carry;
-
-    i = str_len(&n) - 1;
-	carry = 0;
-	num_res = 0;
-    while (i >= 0)
-    {
-        num_res = (carry - 48) + ((str_at(&n, i) - 48) / 2) + '0';
-		
-		--i;
-		str_pushchar(res, num_res);
-    }
-    str_rev(res);
-	return (carry);
-}
-
 t_bignum        dec_div(t_bignum *n)
 {
     t_bignum    res;
-    char        cur;
 	int 		i;
+	int a;
 
 	i = 0;
     if (n->sign == '+')
@@ -121,15 +84,17 @@ t_bignum        dec_div(t_bignum *n)
 		res = big_num_create_by_str(n->sign, "0", "5");
 		return (res);
 	}
-	char rem = 0;
     res = big_num_create_by_size(n->sign, 1, 1);
+	str_pushchar(&res.int_part, '0');
 	while (i < n->frac_part.size)
 	{
-		cur = rem + ((str_at(&n->frac_part,i) - 48) * 5) + ((str_at(&n->frac_part,i) - 48) % 2 * 10) + 48;
-		if (cur != '0')
-			str_pushchar(&res.frac_part, cur);
-		i++;
+		if (i > 0)
+			str_pushchar(&res.frac_part,  ((n->frac_part.data[i] - 48) + (n->frac_part.data[i - 1] - 48) % 2 * 10 )/ 2 + 48);
+		else
+			str_pushchar(&res.frac_part,  (n->frac_part.data[i] - 48) / 2 + 48);
+		++i;
 	}
+	str_pushchar(&res.frac_part, (n->frac_part.data[i - 1] - 48) + 48);
 	return (res);
 }
 

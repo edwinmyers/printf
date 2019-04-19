@@ -6,7 +6,7 @@
 #    By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:24:28 by nparker           #+#    #+#              #
-#    Updated: 2019/04/16 17:58:32 by vice-wra         ###   ########.fr        #
+#    Updated: 2019/04/17 14:56:05 by vice-wra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME := libftprintf.a
 
 FLAGS := -c -g
 
-SRC_DIR := char_vector/ fs_vector/ handling/ longarifm/ parsing/ support_functions/ ../printf/
+SRC_DIR := char_vector/ fs_vector/ handling/ longarifm/ parsing/ support_functions/
 
 OBJ_DIR := ../printf/
 

@@ -14,8 +14,8 @@ void handler_item(va_list *args, t_fs *form_string, char **format)
 		x_handler(form_string, va_arg(*args, long long), format);
 	else if (form_string->type == 'X')
 		x_handler(form_string, va_arg(*args, long long), format);
-	else if (form_string->type == 'f')
-		f_handler(form_string, va_arg(*args, double), format);
+	// else if (form_string->type == 'f')
+	// 	f_handler(form_string, va_arg(*args, double), format);
 	else if (form_string->type == 'c')
 		c_handler(form_string, va_arg(*args, int), format);
 	else if (form_string->type == 's')
