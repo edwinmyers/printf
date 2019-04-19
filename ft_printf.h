@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/19 15:15:26 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/19 18:31:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ char			*decToOctal(unsigned long long n);
 void			handler_item(va_list *args, t_fs *form_string, char **format);
 void			cast(t_fs *form_string, long long *arg);
 t_string		cust_strsub(t_string *str, unsigned int start, size_t len);
-
+char			*cust_strjoin_left(t_string *s1, char *s2);
+char			*cust_strjoin_right(char *s1, t_string *s2);
+char			*cust_strdup(t_string *src);
 
 
 
