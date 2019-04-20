@@ -1,0 +1,19 @@
+#include "bignum.h"
+
+t_bignum        *bin_mult(t_bignum *l)
+{
+ 	t_bignum    *res;
+	t_string	new_frac_part;
+
+	res = big_num_create();
+	res->sign = l->sign;
+	new_frac_part = str_cut(&l->frac_part, 1, str_len(&l->frac_part));
+	str_push_cs(&res->frac_part, &new_frac_part);
+	str_push_cs(&res->int_part, &l->int_part);
+	str_pushchar(&res->int_part, str_at(&l->frac_part, 0));
+	if (str_len(&res->int_part) == 0)
+		str_pushchar(&res->int_part, '0');
+	if (str_len(&res->frac_part) == 0)
+		str_pushchar(&res->frac_part, '0');
+	return (res);
+}

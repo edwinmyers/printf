@@ -43,6 +43,5 @@ void		        queue_destroy(t_queue *q);
 void	            queue_insert(t_queue *q, t_iterator *i, char *num);
 void                queue_push_back(t_queue *q, char *value);
 void	            queue_del(t_queue *q, t_iterator *i);
-void		        queue_print(t_queue *q);
 
 #endif
