@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/19 18:31:50 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/19 20:19:52 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void			u_handler(t_fs *form_string, unsigned long long arg, char **format);
 void			x_handler(t_fs *form_string, unsigned long long arg, char **format);
 void			xx_handler(t_fs *form_string, long long arg, char **format);
 void			f_handler(t_fs *form_string, double arg, char **format);
+void			lf_handler(t_fs *form_string, long double arg, char **format);
 void			c_handler(t_fs *form_string, int arg, char **format);
 void			s_handler(t_fs *form_string, char *arg, char **format);
 void			p_handler(t_fs *form_string, long long arg, char **format);
@@ -73,6 +74,9 @@ t_string		cust_strsub(t_string *str, unsigned int start, size_t len);
 char			*cust_strjoin_left(t_string *s1, char *s2);
 char			*cust_strjoin_right(char *s1, t_string *s2);
 char			*cust_strdup(t_string *src);
+char			f_get_sign(t_fs *form_string, long double arg);
+void			do_bignum_arithm(t_bignum *num, int precision);
+t_bignum		*get_the_bits(long double arg);
 
 
 

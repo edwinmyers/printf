@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/13 14:50:00 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/19 15:29:09 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/19 20:39:52 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,8 +159,6 @@ t_bignum        dec_sum(t_bignum *l, t_bignum *r)
         res.sign = '+';
     else if (l->sign == '-' && r->sign == '-')
         res.sign = '-';
-    // else
-    //     return bin_minus(l, r);
     res.int_part = str_create_size(10);
     res.frac_part = str_create_size(10);
     rem = frac_sum(l->frac_part, r->frac_part, &res.frac_part);

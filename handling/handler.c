@@ -15,7 +15,10 @@ void handler_item(va_list *args, t_fs *form_string, char **format)
 	else if (form_string->type == 'X')
 		x_handler(form_string, va_arg(*args, long long), format);
 	else if (form_string->type == 'f')
-		f_handler(form_string, va_arg(*args, double), format);
+		if (ft_strchr(form_string->size, 'L'))
+			lf_handler(form_string, va_arg(*args, long double), format);
+		else
+			f_handler(form_string, va_arg(*args, double), format);
 	else if (form_string->type == 'c')
 		c_handler(form_string, va_arg(*args, int), format);
 	else if (form_string->type == 's')
@@ -33,5 +36,4 @@ void handler(va_list *args, t_fs_vector *form_strings, char **format)
 	i = -1;
 	while (++i < fs_vector_length(form_strings))
 		handler_item(args, &form_strings->data[i], format);
-
 }

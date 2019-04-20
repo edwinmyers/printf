@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/19 18:37:06 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/20 14:14:04 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void do_int_part(t_bignum *num)
 	}
 	num->int_part = sum.int_part;
 }
+
 void rround(t_bignum *num, int precision)
 {
 	t_bignum temp;
@@ -61,11 +62,28 @@ void rround(t_bignum *num, int precision)
 	temp = big_num_create_by_size('+', 1, precision);
 	str_pushchar(&temp.int_part, '0');
 	while (precision-- > 1)
-	{
 		str_pushchar(&temp.frac_part, '0');
-	}
 	str_pushchar(&temp.frac_part, '1');
 	*num = dec_sum(num, &temp);
+}
+
+static void put_zeros(int precision, t_string *str)
+{
+	if (precision > str->size)
+		{
+			while (precision != str->size)
+				str_pushchar(str, '0');
+		}
+}
+
+int find_digit(t_string *s, int start)
+{
+	while (start < str_len(s))
+	{
+		if (s->data[start++] > '0')
+			return (1);
+	}
+	return (0);
 }
 
 void do_frac_part(t_bignum *num, int precision)
@@ -90,15 +108,11 @@ void do_frac_part(t_bignum *num, int precision)
 		++i;
 	}
 	if (sum.frac_part.data[precision] > '4')
-		rround(&sum, precision);
+		if (find_digit(&sum.frac_part, precision + 1))
+			rround(&sum, precision);
 	if (precision > 0)
 		num->frac_part = cust_strsub(&sum.frac_part, 0, precision);
-	if (precision > num->frac_part.size)
-	{
-		i = 0;
-		while (precision != num->frac_part.size)
-			str_pushchar(&num->frac_part, '0');
-	}
+	put_zeros(precision, &num->frac_part);
 }
 
 void do_bignum_arithm(t_bignum *num, int precision)
