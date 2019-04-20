@@ -14,7 +14,9 @@
 		"vector": "c",
 		"unistd.h": "c",
 		"fcntl.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"queue.h": "c",
+		"fs_vector.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "Disabled"
 }

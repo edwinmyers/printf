@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/20 14:14:04 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/20 16:05:03 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,10 @@ void do_frac_part(t_bignum *num, int precision)
 		if (find_digit(&sum.frac_part, precision + 1))
 			rround(&sum, precision);
 	if (precision > 0)
+	{
+		num->int_part = cust_strsub(&sum.int_part, 0, sum.int_part.size);
 		num->frac_part = cust_strsub(&sum.frac_part, 0, precision);
+	}
 	put_zeros(precision, &num->frac_part);
 }
 
@@ -153,7 +156,8 @@ t_bignum *get_the_bits(long double arg)
 		str_pushchar(&num->frac_part, byte + 48);
 		--i;
 	}
-	process_the_exponent(num, t.t_double.exponent - 16383);
+	if (arg > 0)
+		process_the_exponent(num, t.t_double.exponent - 16383);
 	return (num);
 }
 

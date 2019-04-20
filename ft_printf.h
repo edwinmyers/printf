@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/19 20:19:52 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/20 15:39:42 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 #include <fcntl.h>
 #include <stdarg.h>
 #include "fs_vector/fs_vector.h"
-#include "char_vector/char_vec.h"
-#include "queue.h"
+#include "string/t_string.h"
+#include "queue/queue.h"
 #include "longarifm/bignum.h"
 
 

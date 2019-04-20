@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:58:28 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/18 14:55:54 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/20 15:41:45 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SUPPORT_FUNCTIONS_H_
 
 #include <stdlib.h>
+#include <unistd.h>
 
 void	ft_strdel(char **as);
 char	*ft_strdup(const char *s1);

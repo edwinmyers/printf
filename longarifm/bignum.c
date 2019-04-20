@@ -1,5 +1,4 @@
 #include "bignum.h"
-#include "stdio.h"
 
 t_bignum        big_num_create_by_str(char sign, char *int_part, char *frac_part)
 {

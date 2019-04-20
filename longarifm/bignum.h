@@ -1,8 +1,8 @@
 #ifndef BIGNUM_H_
 #define BIGNUM_H_
 
-#include "t_string.h"
-#include "support_functions/support_functions.h"
+#include "../string/t_string.h"
+#include "../support_functions/support_functions.h"
 
 typedef struct  s_bignum
 {

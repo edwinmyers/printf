@@ -101,28 +101,3 @@ int					ft_printf(char *format, ...)
 	write(1, str.data, str.size);
 	return ((int)str.size);
 }
-
-#include <stdio.h>
-int main()
-{
-	int i;
-	long long p;
-	long double n;
-
-
-	i = 4;
-	// char *str = ft_strdup("hey yo sup");
-
-	printf("orig func:|%.1000f|\n", 0.15);
-	printf("orig func:|%.1000f|\n", 0.45);
-	printf("orig func:|%.1000f|\n", 0.35);
-	printf("orig func:|%.1000f|\n", 0.45);
-	printf("orig func:|%.1000f|\n\n", 0.55);
-	ft_printf("my func:  |%.1000f|\n", 0.15);
-	ft_printf("my func:  |%.1000f|\n", 0.45);
-	ft_printf("my func:  |%.1000f|\n", 0.35);
-	ft_printf("my func:  |%.1000f|\n", 0.45);
-	ft_printf("my func:  |%.1000f|\n", 0.55);
-
-}
-
