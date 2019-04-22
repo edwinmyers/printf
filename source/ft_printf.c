@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/20 16:36:59 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/20 18:37:16 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void 	decide(t_queue *q, t_string *cust_str, va_list *args)
 		}
 		ft_strdel(&str);
 	}
-	ft_strdel(&(form_string.flags));
+	// ft_strdel(&(form_string.flags));
 }
 
 int					ft_printf(char *format, ...)

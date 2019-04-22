@@ -1,14 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   prepare.c                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/20 16:28:44 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/20 16:28:45 by nparker          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
 #include "../ft_printf.h"
 
@@ -22,8 +11,10 @@ void prepare_item_flags(t_fs *form_string)
 		ft_sym_del(&form_string->flags, '-');
 	if (ft_strchr(form_string->flags, '0') && (ft_strchr(form_string->flags, '-')))
 		ft_sym_del(&form_string->flags, '0');
-	if (ft_strchr(form_string->flags, '#') && !ft_strchr("xoX", form_string->type))
-		ft_sym_del(&form_string->flags, '#'); 
+	if (ft_strchr(form_string->flags, '#') && !ft_strchr("xoXf", form_string->type))
+		ft_sym_del(&form_string->flags, '#');
+	if (ft_strchr(form_string->flags, ' '))
+		form_string->width--;
 }
 
 void prepare_item_precision(t_fs *form_string)

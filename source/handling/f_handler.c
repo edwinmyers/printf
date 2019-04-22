@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/20 16:05:03 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/22 17:20:32 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,11 @@ void rround(t_bignum *num, int precision)
 
 	temp = big_num_create_by_size('+', 1, precision);
 	str_pushchar(&temp.int_part, '0');
+	if (precision == 0)
+	{
+		num->int_part.data[num->int_part.size - 1]++;
+		return ;
+	}
 	while (precision-- > 1)
 		str_pushchar(&temp.frac_part, '0');
 	str_pushchar(&temp.frac_part, '1');
@@ -109,12 +114,11 @@ void do_frac_part(t_bignum *num, int precision)
 	}
 	if (sum.frac_part.data[precision] > '4')
 		if (find_digit(&sum.frac_part, precision + 1))
-			rround(&sum, precision);
-	if (precision > 0)
-	{
-		num->int_part = cust_strsub(&sum.int_part, 0, sum.int_part.size);
+				rround(&sum, precision);
+	if (precision >= 0)
 		num->frac_part = cust_strsub(&sum.frac_part, 0, precision);
-	}
+	sum.frac_part = str_create_str("0");
+	*num = dec_sum(&sum, num);
 	put_zeros(precision, &num->frac_part);
 }
 
@@ -179,12 +183,14 @@ void	f_handler(t_fs *form_string, double arg, char **format)
 		str = cust_strjoin_left(&num->int_part, ".");
 		str = cust_strjoin_right(str, &num->frac_part);
 	}
-	else 
+	else
 		str = cust_strdup(&num->int_part);
 	if (sign == '-')
 		add_sign(&str, '-');
 	else if (sign == '+')
 		add_sign(&str, '+');
 	width_insert(form_string, &str);
+	if(ft_strchr(form_string->flags, ' ') && sign != '-')
+		add_sign(&str, ' ');
 	*format = str;
 }

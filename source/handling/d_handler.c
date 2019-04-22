@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/19 16:54:16 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/22 15:28:44 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,10 +136,8 @@ void width_insert(t_fs *form_string, char **substr)
 
 	c = ' ';
 	width = ft_max(form_string->width - ft_strlen(*substr), 0);
-	// if (ft_strchr(form_string->flags, '+'))
-	// 	width--;
 	new_str = ft_strnew(ft_strlen(*substr) + width);
-	if (ft_strchr(form_string->flags, '0'))
+	if ((ft_strchr(form_string->flags, '0') && form_string->precision < 0) || (ft_strchr(form_string->flags, '0') && form_string->type == 'f'))
 		c = '0';
 	if (ft_strchr(form_string->flags, '-'))
 		width_insert_right(&new_str, *substr, width, c);
@@ -177,11 +175,9 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 		add_sign(&substr, '-');
 	else if (sign == '+')
 		add_sign(&substr, '+');
-	if(ft_strchr(form_string->flags, ' ') && form_string->width == ft_count_digits(arg))
-		form_string->width += 1;
-	else if (ft_strchr(form_string->flags, ' ') && form_string->width == 0)
-		form_string->width += ft_count_digits(arg) + 1;
 	width_insert(form_string, &substr);
+	if(ft_strchr(form_string->flags, ' ') && sign != '-')
+		add_sign(&substr, ' ');
 	if (form_string->precision == 0 && arg == 0)
 		ft_bzero(substr, 1);
 	*format = substr;

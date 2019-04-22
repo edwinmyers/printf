@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ft_printf.h"
+#include "source/ft_printf.h"
 
 int main()
 {
@@ -8,6 +8,6 @@ int main()
 	long double n;
 
 	i = 4;
-	printf("orig func:|%.1f|\n",  0.45);
-	ft_printf("my func:  |%.1f|\n", 0.45);
+	printf("|%.1f|", 1.66);
+	ft_printf("|%.1f|\n", 1.66);
 }

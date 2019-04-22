@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nparker <nparker@student.42.fr>            +#+  +:+       +#+         #
+#    By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:24:28 by nparker           #+#    #+#              #
-#    Updated: 2019/04/20 16:48:06 by nparker          ###   ########.fr        #
+#    Updated: 2019/04/22 15:06:47 by vice-wra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,18 +33,16 @@ SOURCES := $(wildcard $(SEARCH_WILD))
 all:$(NAME)
 
 $(NAME):
-	$(CC) -c $(SOURCES) -I $(INCLUDES)
-	ar rc $(NAME) $(OBJECTS)
-	ranlib $(NAME)
-
+	@$(CC) -g -c $(SOURCES) -I $(INCLUDES)
+	@ar rc $(NAME) $(OBJECTS)
+	@ranlib $(NAME)
+	@rm -rf $(OBJECTS)
 clean:
 	@rm -rf $(OBJECTS)
 
 fclean:	clean
 	@rm -rf $(NAME)
-
 re:
 	@make fclean
 	@make all
-
 .PHONY: all clean fclean re
