@@ -6,8 +6,7 @@ int main()
 	int i;
 	long long p;
 	long double n;
-
-	i = 4;
-	printf("|%.1f|", 1.66);
-	ft_printf("|%.1f|\n", 1.66);
+	
+	printf("|%-07.1f|\n", 6.44);
+	ft_printf("|%-07.1f|\n", 6.44);
 }

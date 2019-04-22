@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fs_vector_destroy.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sindenis <sindenis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:54:34 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/20 16:24:29 by nparker          ###   ########.fr       */
+/*   Updated: 2019/03/21 21:54:47 by sindenis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "fs_vector.h"
 
 void fs_vector_destroy(t_fs_vector *v)
 {

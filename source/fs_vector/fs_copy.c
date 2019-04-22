@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fs_copy.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sindenis <sindenis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:46:29 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/20 16:24:19 by nparker          ###   ########.fr       */
+/*   Updated: 2019/03/21 21:55:22 by sindenis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "fs_vector.h"
 
 void fs_copy(t_fs *new_form_string, t_fs *form_string)
 {

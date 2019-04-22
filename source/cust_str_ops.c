@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cust_strsub.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:18:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/20 16:27:54 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/20 15:36:42 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 t_string		cust_strsub(t_string *str, unsigned int start, size_t len)
 {

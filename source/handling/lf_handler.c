@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 20:17:11 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 15:29:29 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/22 20:52:02 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ void			lf_handler(t_fs *form_string, long double arg, char **format)
 	if (form_string->precision == -1)
 		form_string->precision = 6;
 	num = get_the_bits(arg);
-	do_bignum_arithm(num, form_string->precision);
+	bin_to_dec(num);
+	rround(num, form_string->precision);
 	if (form_string->precision > 0)
 	{
 		str = cust_strjoin_left(&num->int_part, ".");

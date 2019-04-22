@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fs_vector_create.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sindenis <sindenis@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:52:46 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/20 16:24:26 by nparker          ###   ########.fr       */
+/*   Updated: 2019/03/21 21:52:54 by sindenis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "fs_vector.h"
 
 t_fs_vector fs_vector_create(int size)
 {
