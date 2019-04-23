@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 15:48:17 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 21:09:33 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ char *put_bignum_strings_into_one(t_bignum *num, t_fs *form_string, char sign)
 		add_sign(&str, '-');
 	else if (sign == '+')
 		add_sign(&str, '+');
-	if (form_string->width > ft_strlen(str))
-		width_insert(form_string, &str);
+	width_insert(form_string, &str);
 	if(ft_strchr(form_string->flags, ' ') && sign != '-')
 		add_sign(&str, ' ');
 	return (str);

@@ -7,6 +7,6 @@ int main()
 	long long p;
 	long double n;
 	
-	printf("|% -5x|\n", 45);
-	ft_printf("|% -5x|\n", 45);
+	ft_printf("@moulitest1: %c\n", 0);
+	printf("@moulitest2: %c\n", 0);
 }
