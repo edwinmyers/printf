@@ -7,6 +7,6 @@ int main()
 	long long p;
 	long double n;
 	
-	printf("|%#.100f|\n", 6.99);
-	ft_printf("|%#.100f|\n", 6.99);
+	printf("|% -5x|\n", 45);
+	ft_printf("|% -5x|\n", 45);
 }

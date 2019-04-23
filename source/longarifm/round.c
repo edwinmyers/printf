@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:34:02 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 15:48:30 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 19:09:19 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ void rround(t_bignum **num, int precision)
 	t_bignum *tempfree;
 
 	put_zeros(precision, &(*num)->frac_part);
-	if ((*num)->frac_part.data[precision] <= '4' || !find_digit(&(*num)->frac_part, precision + 1))
+	if (((*num)->frac_part.size > precision && (*num)->frac_part.data[precision] <= '4') || !find_digit(&(*num)->frac_part, precision + 1))
 			return ;
 	if (precision == 0)
 	{
 		(*num)->int_part.data[(*num)->int_part.size - 1]++;
 		return ;
 	}
-	temp = NULL;
 	temp = big_num_create();	
 	str_pushchar(&temp->int_part, '0');
 	while (precision-- > 1)

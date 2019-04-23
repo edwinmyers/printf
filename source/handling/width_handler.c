@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:39:51 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 15:46:41 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 20:03:23 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void width_insert(t_fs *form_string, char **substr)
 	c = ' ';	
 	width = form_string->width - ft_strlen(*substr);
 	new_str = ft_strnew((ft_strlen(*substr) + width));
-	if ((ft_strchr(form_string->flags, '0') && form_string->precision < 0) || (ft_strchr(form_string->flags, '0') && form_string->type == 'f'))
+	if (ft_strchr(form_string->flags, '0') || (ft_strchr(form_string->flags, '0') && form_string->type == 'f'))
 		c = '0';
 	if (ft_strchr(form_string->flags, '-'))
 		width_insert_right(&new_str, *substr, width, c);
