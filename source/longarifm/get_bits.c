@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:20:15 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 21:42:32 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 14:32:54 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_bignum *get_the_bits(long double arg)
 	t_bignum *num;
 
 	i = 62;
+	if (arg < 0)
+		arg *= -1.0;
 	t.d_num = (long double)arg;
 	num = big_num_create();
 	str_pushchar(&num->int_part, (t.t_double.mantissa >> 63 & 1) + 48);

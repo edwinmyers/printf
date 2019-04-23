@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 12:55:41 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/20 18:02:18 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 15:37:14 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ void			x_handler(t_fs *form_string, unsigned long long arg, char **format)
     precision_insert(form_string, &substr);
 	if (ft_strchr(form_string->flags, '#') && arg != 0)
 		substr = ft_strjoin("0x", substr);
+	width_insert(form_string, &substr);
 	if (ft_strchr(form_string->flags, ' ') && ft_strchr(form_string->flags, '-'))
 	{
 		ft_strdel(&form_string->flags);
 		form_string->flags = ft_strdup("-");
 	}
-    width_insert(form_string, &substr);
 	if (form_string->type == 'X')
 		ft_toupper(&substr);
     *format = substr;

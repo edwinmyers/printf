@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:39 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 20:43:25 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/23 15:40:32 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,6 @@ void       	 	big_num_destroy(t_bignum **num);
 void            set_sign(t_bignum *num);
 void            pos_pow(t_bignum **n, int power, t_bignum *(*f)(t_bignum*));
 void            bin_to_dec(t_bignum *num);
-void			rround(t_bignum *num, int precision);
+void			rround(t_bignum **num, int precision);
 
 #endif
