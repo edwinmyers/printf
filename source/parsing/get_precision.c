@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   get_precision.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:42:44 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/04 18:11:15 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:50:32 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int get_precision(char **str)
+int			get_precision(char **str)
 {
 	char	*str_precision;
 	int		num_precision;
-	char *temp;
+	char	*temp;
 
 	str_precision = NULL;
 	if (**str != '.')

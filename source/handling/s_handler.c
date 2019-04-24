@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   s_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 14:37:33 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 21:23:21 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:13:10 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void    s_handler(t_fs *form_string, char *arg, char **format)
+void		s_handler(t_fs *form_string, char *arg, char **format)
 {
-    char *substr;
-    int i;
+	char	*substr;
+	int		i;
 
 	if (arg == NULL)
 		*format = ft_strdup("(null)");
-    else
-	{	
+	else
+	{
 		substr = ft_strdup(arg);
 		i = ft_strlen(substr);
 		if (form_string->precision >= i)

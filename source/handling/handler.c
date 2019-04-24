@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   handler.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 12:57:47 by nparker           #+#    #+#             */
+/*   Updated: 2019/04/24 13:00:23 by nparker          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../ft_printf.h"
 
-void handler_item(va_list *args, t_fs *form_string, char **format)
+void		handler_item(va_list *args, t_fs *form_string, char **format)
 {
 	if (form_string->type == 'd')
 		d_handler(form_string, va_arg(*args, long long), format);
@@ -29,10 +41,11 @@ void handler_item(va_list *args, t_fs *form_string, char **format)
 		pr_handler(form_string, format);
 }
 
-void handler(va_list *args, t_fs_vector *form_strings, char **format)
+void		handler(va_list *args, t_fs_vector *form_strings, char **format)
 {
-	int i;
-	char *temp;
+	int		i;
+	char	*temp;
+
 	i = -1;
 	while (++i < fs_vector_length(form_strings))
 		handler_item(args, &form_strings->data[i], format);

@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   bignum_create.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:32 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 13:36:38 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:30:19 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
-t_bignum        *big_num_create(void)
+t_bignum		*big_num_create(void)
 {
-    t_bignum *num;
+	t_bignum	*num;
 
-    num = (t_bignum *)malloc(sizeof(t_bignum));
-    num->sign = '+';
-    num->int_part = str_create_size(5);
-    num->frac_part = str_create_size(5);
-    return (num);
+	num = (t_bignum *)malloc(sizeof(t_bignum));
+	num->sign = '+';
+	num->int_part = str_create_size(5);
+	num->frac_part = str_create_size(5);
+	return (num);
 }

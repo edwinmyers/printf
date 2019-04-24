@@ -1,6 +1,18 @@
-#include "t_string.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_at.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 14:07:29 by nparker           #+#    #+#             */
+/*   Updated: 2019/04/24 14:08:43 by nparker          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char                str_at(t_string *s, int idx)
+#include "../ft_printf.h"
+
+char	str_at(t_string *s, int idx)
 {
-    return s->data[idx];       
+	return (s->data[idx]);
 }

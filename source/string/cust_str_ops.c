@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cust_strsub.c                                      :+:      :+:    :+:   */
+/*   cust_str_ops.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:18:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/20 15:36:42 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:55:08 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 t_string		cust_strsub(t_string *str, unsigned int start, size_t len)
 {
 	t_string	new_str;
-	size_t	i;
+	size_t		i;
 
 	i = 0;
 	new_str = str_create_size(len);
@@ -24,12 +24,12 @@ t_string		cust_strsub(t_string *str, unsigned int start, size_t len)
 	return (new_str);
 }
 
-char *cust_strjoin_left(t_string *s1, char *s2)
+char			*cust_strjoin_left(t_string *s1, char *s2)
 {
-	char	*new_str;
-	size_t	i;
-	size_t	j;
-	size_t	len;
+	char		*new_str;
+	size_t		i;
+	size_t		j;
+	size_t		len;
 
 	if (!s1->size || !s2)
 		return (0);
@@ -47,12 +47,12 @@ char *cust_strjoin_left(t_string *s1, char *s2)
 	return (new_str);
 }
 
-char *cust_strjoin_right(char *s1, t_string *s2)
+char			*cust_strjoin_right(char *s1, t_string *s2)
 {
-	char	*new_str;
-	size_t	i;
-	size_t	j;
-	size_t	len;
+	char		*new_str;
+	size_t		i;
+	size_t		j;
+	size_t		len;
 
 	if (!s1 || !s2->size)
 		return (0);
@@ -70,10 +70,10 @@ char *cust_strjoin_right(char *s1, t_string *s2)
 	return (new_str);
 }
 
-char *cust_strdup(t_string *src)
+char			*cust_strdup(t_string *src)
 {
-	int		i;
-	char	*new_s1;
+	int			i;
+	char		*new_s1;
 
 	if (!src->size)
 		return (NULL);

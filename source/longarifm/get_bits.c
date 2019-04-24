@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   get_bits.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:20:15 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 19:38:48 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:41:44 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
-t_bignum *get_the_bits(long double arg)
+t_bignum		*get_the_bits(long double arg)
 {
-	int i;
-	int byte;
-	t_bignum *num;
+	int			i;
+	int			byte;
+	t_bignum	*num;
 
 	i = 62;
 	if (arg < 0)

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   prepare_size.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 19:49:38 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 19:50:15 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:57:08 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void prepare_item_size_n(t_fs *form_string)
+void		prepare_item_size_n(t_fs *form_string)
 {
-	char *new_str;
+	char	*new_str;
 
 	new_str = NULL;
 	if (ft_strncmp(form_string->size, "ll", 2) == 0)
@@ -29,9 +29,9 @@ void prepare_item_size_n(t_fs *form_string)
 	form_string->size = new_str;
 }
 
-void prepare_item_size_f(t_fs *form_string)
+void		prepare_item_size_f(t_fs *form_string)
 {
-	char *new_str;
+	char	*new_str;
 
 	new_str = NULL;
 	if (ft_strncmp(form_string->size, "l", 1) == 0)
@@ -42,10 +42,10 @@ void prepare_item_size_f(t_fs *form_string)
 	form_string->size = new_str;
 }
 
-void prepare_item_size(t_fs *form_string)
+void		prepare_item_size(t_fs *form_string)
 {
-	int i;
-	char *new_size;
+	int		i;
+	char	*new_size;
 
 	new_size = NULL;
 	if (form_string->size == NULL)

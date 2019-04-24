@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   get_size.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:43:32 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/04 17:55:04 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:51:17 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char *get_size(char **str)
+char		*get_size(char **str)
 {
 	int		states[3];
 	char	*size;
 	char	*temp;
-	
+
 	size = NULL;
 	arr_zero(states, 3);
 	while (**str && (**str == 'l' || **str == 'h' || **str == 'L'))

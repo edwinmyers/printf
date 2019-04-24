@@ -3,19 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   p_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 13:21:27 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/03 17:41:57 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:09:38 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void p_handler(t_fs *form_string, long long arg, char **format)
+void		p_handler(t_fs *form_string, long long arg, char **format)
 {
-	char *substr;
-	char *temp;
+	char	*substr;
+	char	*temp;
+
 	substr = ft_dec_to_hex(arg);
 	precision_insert(form_string, &substr);
 	temp = substr;
@@ -24,4 +25,3 @@ void p_handler(t_fs *form_string, long long arg, char **format)
 	width_insert(form_string, &substr);
 	*format = substr;
 }
-

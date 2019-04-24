@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   round.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:34:02 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 19:09:19 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:48:03 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
-int find_digit(t_string *s, int start)
+int				find_digit(t_string *s, int start)
 {
 	while (start < str_len(s))
 		if (s->data[start++] > '0')
@@ -20,27 +20,29 @@ int find_digit(t_string *s, int start)
 	return (0);
 }
 
-static void put_zeros(int precision, t_string *str)
+static void		put_zeros(int precision, t_string *str)
 {
 	if (precision > str->size)
 		while (precision != str->size)
 			str_pushchar(str, '0');
 }
 
-void rround(t_bignum **num, int precision)
+void			rround(t_bignum **num, int precision)
 {
 	t_bignum *temp;
 	t_bignum *tempfree;
 
 	put_zeros(precision, &(*num)->frac_part);
-	if (((*num)->frac_part.size > precision && (*num)->frac_part.data[precision] <= '4') || !find_digit(&(*num)->frac_part, precision + 1))
-			return ;
+	if (((*num)->frac_part.size > precision &&
+		(*num)->frac_part.data[precision] <= '4') ||
+			!find_digit(&(*num)->frac_part, precision + 1))
+		return ;
 	if (precision == 0)
 	{
 		(*num)->int_part.data[(*num)->int_part.size - 1]++;
 		return ;
 	}
-	temp = big_num_create();	
+	temp = big_num_create();
 	str_pushchar(&temp->int_part, '0');
 	while (precision-- > 1)
 		str_pushchar(&temp->frac_part, '0');

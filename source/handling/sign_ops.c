@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   sign_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:37:39 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 15:40:32 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:14:35 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char f_get_sign(t_fs *form_string, long double arg)
+char		f_get_sign(t_fs *form_string, long double arg)
 {
-	char sign;
+	char	sign;
 
 	if (arg >= 0 && ft_strchr(form_string->flags, '+'))
 		sign = '+';
@@ -22,12 +22,12 @@ char f_get_sign(t_fs *form_string, long double arg)
 		sign = 0;
 	else if (arg < 0)
 		sign = '-';
-	return (sign);		
+	return (sign);
 }
 
-char get_sign(t_fs *form_string, long long arg)
+char		get_sign(t_fs *form_string, long long arg)
 {
-	char sign;
+	char	sign;
 
 	if (arg >= 0 && ft_strchr(form_string->flags, '+'))
 		sign = '+';
@@ -35,14 +35,14 @@ char get_sign(t_fs *form_string, long long arg)
 		sign = 0;
 	else if (arg < 0)
 		sign = '-';
-	return (sign);		
+	return (sign);
 }
 
-void add_sign(char **str, char sign)
+void		add_sign(char **str, char sign)
 {
-	char *new_str;
-	int len;
-	int i;
+	char	*new_str;
+	int		len;
+	int		i;
 
 	i = 0;
 	len = ft_strlen(*str) + 1;
@@ -54,11 +54,11 @@ void add_sign(char **str, char sign)
 	*str = new_str;
 }
 
-char del_minus(char **str)
+char		del_minus(char **str)
 {
-	int i;
-	int len;
-	char sign;
+	int		i;
+	int		len;
+	char	sign;
 
 	sign = **str;
 	i = -1;

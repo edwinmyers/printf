@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lf_handler.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 20:17:11 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 20:52:02 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:51:03 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void			lf_handler(t_fs *form_string, long double arg, char **format)
 {
-	char *str;
-	char sign;
-	t_bignum *num;
+	char		*str;
+	char		sign;
+	t_bignum	*num;
 
 	sign = f_get_sign(form_string, arg);
 	if (arg < 0)
@@ -25,20 +25,20 @@ void			lf_handler(t_fs *form_string, long double arg, char **format)
 		form_string->precision = 6;
 	num = get_the_bits(arg);
 	bin_to_dec(num);
-	rround(num, form_string->precision);
+	rround(&num, form_string->precision);
 	if (form_string->precision > 0)
 	{
 		str = cust_strjoin_left(&num->int_part, ".");
 		str = cust_strjoin_right(str, &num->frac_part);
 	}
-	else 
+	else
 		str = cust_strdup(&num->int_part);
 	if (sign == '-')
 		add_sign(&str, '-');
 	else if (sign == '+')
 		add_sign(&str, '+');
 	width_insert(form_string, &str);
-	if(ft_strchr(form_string->flags, ' ') && sign != '-')
+	if (ft_strchr(form_string->flags, ' ') && sign != '-')
 		add_sign(&str, ' ');
 	*format = str;
 }

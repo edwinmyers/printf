@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   queue_is_empty.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jblue-da <jblue-da@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 19:09:02 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/20 19:09:03 by jblue-da         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:02:25 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "queue.h"
+#include "../ft_printf.h"
 
-int queue_is_empty(t_queue *q)
+int	queue_is_empty(t_queue *q)
 {
-    return (queue_len(q) == 0);
+	return (queue_len(q) == 0);
 }

@@ -1,15 +1,27 @@
-#include "t_string.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_create_custstr.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 14:08:51 by nparker           #+#    #+#             */
+/*   Updated: 2019/04/24 14:09:17 by nparker          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-t_string            str_create_custstr(t_string *cs)
+#include "../ft_printf.h"
+
+t_string		str_create_custstr(t_string *cs)
 {
-    int i;
-    t_string res;
+	int			i;
+	t_string	res;
 
-    i = -1;
-    res.capacity = str_len(cs) + str_len(cs) * 3 / 2;
-    res.data = (char *)malloc(res.capacity * sizeof(char));
-    res.size = str_len(cs);
-    while (++i < res.size)
-        res.data[i] = cs->data[i];
-    return (res);
+	i = -1;
+	res.capacity = str_len(cs) + str_len(cs) * 3 / 2;
+	res.data = (char *)malloc(res.capacity * sizeof(char));
+	res.size = str_len(cs);
+	while (++i < res.size)
+		res.data[i] = cs->data[i];
+	return (res);
 }

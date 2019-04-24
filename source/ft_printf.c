@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/23 21:52:48 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:58:58 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void fs_init(t_fs *fs)
+void			fs_init(t_fs *fs)
 {
 	fs->flags = NULL;
 	fs->size = NULL;
@@ -21,12 +21,13 @@ void fs_init(t_fs *fs)
 	fs->width = 0;
 }
 
-int		find_the_flags(char **str)
+int				find_the_flags(char **str)
 {
-	int i;
+	int			i;
 
 	i = 0;
-	while (((*str)[i] && !ft_isalpha((*str)[i])) || ((*str)[i] == 'l' || (*str)[i] == 'L' || (*str)[i] == 'h'))
+	while (((*str)[i] && !ft_isalpha((*str)[i])) ||
+			((*str)[i] == 'l' || (*str)[i] == 'L' || (*str)[i] == 'h'))
 	{
 		if ((*str)[i + 1] && (*str)[i + 1] == '%')
 		{
@@ -38,11 +39,11 @@ int		find_the_flags(char **str)
 	return (i);
 }
 
-void		get_queue(char *format, t_queue *queue)
+void			get_queue(char *format, t_queue *queue)
 {
-	char *str;
-	int i;
-	char *temp;
+	char		*str;
+	int			i;
+	char		*temp;
 
 	while (format && ft_strchr(format, '%'))
 	{
@@ -67,12 +68,12 @@ void		get_queue(char *format, t_queue *queue)
 //    ft_strdel(&str);
 }
 
-void 	decide(t_queue *q, t_string *cust_str, va_list *args)
+void			decide(t_queue *q, t_string *cust_str, va_list *args)
 {
-	char *str;
-	t_fs form_string;
-	int i;
-	char *temp;
+	char		*str;
+	t_fs		form_string;
+	int			i;
+	char		*temp;
 
 	fs_init(&form_string);
 	while (q->size)

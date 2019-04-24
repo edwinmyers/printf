@@ -1,9 +1,21 @@
-#include "t_string.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   str_destroy.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 14:14:40 by nparker           #+#    #+#             */
+/*   Updated: 2019/04/24 14:14:58 by nparker          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void                str_destroy(t_string *s)
+#include "../ft_printf.h"
+
+void	str_destroy(t_string *s)
 {
-    free(s->data);
-    s->data = NULL;
-    s->capacity = 0;
-    s->size = 0;
+	free(s->data);
+	s->data = NULL;
+	s->capacity = 0;
+	s->size = 0;
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   bin_mult.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:42 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 20:33:43 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:32:46 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
-t_bignum        *bin_mult(t_bignum *l)
+t_bignum		*bin_mult(t_bignum *l)
 {
- 	t_bignum    *res;
+	t_bignum	*res;
 	t_string	new_frac_part;
 
 	res = big_num_create();

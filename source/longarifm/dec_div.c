@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dec_div.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:50 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 20:33:51 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:36:35 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
 t_bignum        *dec_div(t_bignum *n)
 {

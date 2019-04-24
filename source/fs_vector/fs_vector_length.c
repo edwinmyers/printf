@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fs_vector_length.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sindenis <sindenis@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:55:04 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/21 21:55:15 by sindenis         ###   ########.fr       */
+/*   Updated: 2019/04/24 12:55:03 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fs_vector.h"
+#include "../ft_printf.h"
 
-int fs_vector_length(t_fs_vector *v)
+int	fs_vector_length(t_fs_vector *v)
 {
 	return (v->size);
 }

@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   x_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 12:55:41 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/23 21:12:13 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:26:06 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void			x_handler(t_fs *form_string, unsigned long long arg, char **format)
+void		x_handler(t_fs *form_string,
+						unsigned long long arg, char **format)
 {
-    char* substr;
-	
+	char	*substr;
+
 	substr = NULL;
-    u_cast(form_string, &arg);
-    if (arg > 0)
+	u_cast(form_string, &arg);
+	if (arg > 0)
 		substr = ft_dec_to_hex(arg);
 	else if (form_string->precision != 0)
 		substr = ft_strdup("0");
-    if (form_string->precision == 0)
+	if (form_string->precision == 0)
 		substr = ft_strnew(0);
 	else
 		precision_insert(form_string, &substr);
@@ -35,10 +36,10 @@ void			x_handler(t_fs *form_string, unsigned long long arg, char **format)
 		}
 		substr = ft_strjoin("0x", substr);
 	}
-	if(ft_strchr(form_string->flags, ' '))
+	if (ft_strchr(form_string->flags, ' '))
 		form_string->width++;
 	width_insert(form_string, &substr);
 	if (form_string->type == 'X')
 		ft_toupper(&substr);
-    *format = substr;
+	*format = substr;
 }

@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   overflow_handle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:41:37 by sindenis          #+#    #+#             */
-/*   Updated: 2019/03/25 13:47:31 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 14:59:49 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int overflow_handle(char *str)
+int				overflow_handle(char *str)
 {
-	int i;
-	long long num;
+	int			i;
+	long long	num;
 
 	if (str == NULL)
 		return (0);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:44:56 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/01 15:23:05 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:53:52 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void parse(char *format, t_fs_vector *form_strings)
+void			parse(char *format, t_fs_vector *form_strings)
 {
 	char		*str;
 	char		*percent;

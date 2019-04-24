@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   swap_comp_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:34:04 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/22 20:34:05 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:48:33 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bignum.h"
+#include "../ft_printf.h"
 
-void     swap_comp_str(t_string *s1, t_string *s2)
+void			swap_comp_str(t_string *s1, t_string *s2)
 {
-    t_string tmp;
+	t_string	tmp;
 
-    if (str_len(s1) < str_len(s2))
-    {
-        tmp = *s1;
-        *s1 = *s2;
-        *s2 = tmp;
-    }
+	if (str_len(s1) < str_len(s2))
+	{
+		tmp = *s1;
+		*s1 = *s2;
+		*s2 = tmp;
+	}
 }

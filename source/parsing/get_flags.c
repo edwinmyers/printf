@@ -3,24 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   get_flags.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:37:36 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/22 19:09:56 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 13:49:59 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char *get_flags(char **str)
+char		*get_flags(char **str)
 {
-	int states[5];
-	char *flags;
-	char *temp;
+	int		states[5];
+	char	*flags;
+	char	*temp;
 
 	flags = NULL;
 	arr_zero(states, 5);
-	while (**str && (**str == '+' || **str == '-' || **str == '0' || **str == '#' || **str == ' '))
+	while (**str && (**str == '+' || **str == '-' ||
+			**str == '0' || **str == '#' || **str == ' '))
 	{
 		temp = *str;
 		if (**str == '+' && states[0]++ == 0)

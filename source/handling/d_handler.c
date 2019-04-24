@@ -6,16 +6,15 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/23 21:04:58 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/24 12:48:17 by nparker          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-
-void num_insert(char **substr, long long arg, t_fs *form_string)
+void		num_insert(char **substr, long long arg, t_fs *form_string)
 {
-	char *number;
+	char	*number;
 
 	number = ft_ltoa(arg);
 	if (arg < 0)
@@ -23,10 +22,10 @@ void num_insert(char **substr, long long arg, t_fs *form_string)
 	*substr = number;
 }
 
-void d_handler(t_fs *form_string, long long arg, char **format)
+void		d_handler(t_fs *form_string, long long arg, char **format)
 {
-	char *substr;
-	char sign;
+	char	*substr;
+	char	sign;
 
 	substr = NULL;
 	cast(form_string, &arg);
@@ -41,7 +40,7 @@ void d_handler(t_fs *form_string, long long arg, char **format)
 	if (form_string->precision == 0 && arg == 0)
 		ft_bzero(substr, 1);
 	width_insert(form_string, &substr);
-	if(ft_strchr(form_string->flags, ' ') && sign != '-')
+	if (ft_strchr(form_string->flags, ' ') && sign != '-')
 		add_sign(&substr, ' ');
 	*format = substr;
 }

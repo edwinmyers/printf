@@ -1,8 +1,20 @@
-#include "queue.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   queue_create.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/04/24 13:59:28 by nparker           #+#    #+#             */
+/*   Updated: 2019/04/24 14:00:14 by nparker          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void queue_create(t_queue *q)
+#include "../ft_printf.h"
+
+void	queue_create(t_queue *q)
 {
-    q->head = NULL;
-    q->tail = NULL;
+	q->head = NULL;
+	q->tail = NULL;
 	q->size = 0;
 }
