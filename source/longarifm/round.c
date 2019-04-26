@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   round.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:34:02 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:48:03 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:22:37 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ static void		put_zeros(int precision, t_string *str)
 void			rround(t_bignum **num, int precision)
 {
 	t_bignum *temp;
-	t_bignum *tempfree;
 
 	put_zeros(precision, &(*num)->frac_part);
 	if (((*num)->frac_part.size > precision &&
@@ -47,8 +46,5 @@ void			rround(t_bignum **num, int precision)
 	while (precision-- > 1)
 		str_pushchar(&temp->frac_part, '0');
 	str_pushchar(&temp->frac_part, '1');
-	tempfree = *num;
-	*num = dec_sum(*num, temp);
-	big_num_destroy(&tempfree);
-	big_num_destroy(&temp);
+	*num = dec_sum(*num, temp, 3);
 }

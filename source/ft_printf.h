@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/26 16:32:14 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:24:14 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ t_bignum			*bin_div(t_bignum *l);
 void				big_num_destroy(t_bignum **num);
 t_bignum			*dec_mult(t_bignum *n);
 t_bignum			*dec_div(t_bignum *n);
-t_bignum			*dec_sum(t_bignum *l, t_bignum *r);
+t_bignum			*dec_sum(t_bignum *l, t_bignum *r, int n);
 void				swap_comp_str(t_string *s1, t_string *s2);
 void				rround(t_bignum **num, int precision);
 void				str_push_cs(t_string *l, t_string *r);

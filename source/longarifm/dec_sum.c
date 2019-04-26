@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   dec_sum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:53 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:41:59 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:21:37 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void			int_sum(t_string l, t_string r, t_string *res, char rem)
 	str_rev(res);
 }
 
-t_bignum			*dec_sum(t_bignum *l, t_bignum *r)
+t_bignum			*dec_sum(t_bignum *l, t_bignum *r, int n)
 {
 	t_bignum		*res;
 	char			rem;
@@ -73,5 +73,14 @@ t_bignum			*dec_sum(t_bignum *l, t_bignum *r)
 	res->sign = '+';
 	rem = frac_sum(l->frac_part, r->frac_part, &res->frac_part);
 	int_sum(l->int_part, r->int_part, &res->int_part, rem);
+	if (n == 1)
+		big_num_destroy(&l);
+	else if (n == 2)
+		big_num_destroy(&r);
+	else if (n == 3)
+	{
+		big_num_destroy(&l);
+		big_num_destroy(&r);
+	}
 	return (res);
 }

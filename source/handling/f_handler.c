@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 16:32:21 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:00:46 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ char			*put_bignum_strings_into_one(t_bignum *num,
 											t_fs *form_string, char sign)
 {
 	char	*str;
+	char	*temp;
+	char	*temp2;
+	char	*temp3;
 
 	if (form_string->precision == 0)
 		str = cust_strdup(&num->int_part);
 	else
-		str = ft_strjoin(cust_strjoin_left(&num->int_part, "."),
-		ft_strsub(cust_strdup(&num->frac_part), 0, form_string->precision));
-	if (sign == '-')
-		add_sign(&str, '-');
-	else if (sign == '+')
-		add_sign(&str, '+');
-	if (ft_strchr(form_string->flags, ' ') && sign != '-')
-		add_sign(&str, ' ');
-	width_insert(form_string, &str);
+	{
+		temp = cust_strjoin_left(&num->int_part, ".");
+		temp2 = cust_strdup(&num->frac_part);
+		temp3 = ft_strsub(temp2, 0, form_string->precision);
+		str = ft_strjoin(temp, temp3);
+		ft_strdel(&temp);
+		ft_strdel(&temp2);
+		ft_strdel(&temp3);
+	}
+	big_num_destroy(&num);
 	return (str);
 }
 
@@ -45,8 +49,15 @@ void			f_handler(t_fs *form_string, double arg, char **format)
 	bin_to_dec(num);
 	rround(&num, form_string->precision);
 	str = put_bignum_strings_into_one(num, form_string, sign);
+	if (sign == '-')
+		add_sign(&str, '-');
+	else if (sign == '+')
+		add_sign(&str, '+');
+	if (ft_strchr(form_string->flags, ' ') && sign != '-')
+		add_sign(&str, ' ');
+	width_insert(form_string, &str);
 	if (ft_strchr(form_string->flags, '#') && form_string->precision == 0)
-		*format = ft_strjoin(str, ".");
+		*format = ft_strjoin_free_left(&str, ".");
 	else
 		*format = str;
 }

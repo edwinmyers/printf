@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:50 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/25 15:43:39 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 18:21:27 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_bignum        *dec_div(t_bignum *n)
 	res->sign = n->sign;
 	if (n->int_part.data[0] == '1')
 	{
+		// big_num_destroy(&res);
 		res = big_num_create_by_str(n->sign, "0", "5");
 		return (res);
 	}

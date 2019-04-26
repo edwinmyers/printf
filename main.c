@@ -3,7 +3,7 @@
 
 int main()
 {
-	int i = 34340;
+	double i = 34340.34534;
 
 	char *s = "%34.343ld";
 
@@ -11,7 +11,7 @@ int main()
 //   ft_printf("%X\n", 505);
 //   ft_printf("%%#08x\n", 42);
 //   ft_printf("%x\n", 1000);
-  ft_printf("%#p\n", &i);
+  ft_printf("%#f\n", i);
 }
 
 // @"string: %-#393.718lluAAA; num: -584350174\r\n"

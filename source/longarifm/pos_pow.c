@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   pos_pow.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:58 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:42:24 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 18:24:41 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void			pos_pow(t_bignum **n, int power, t_bignum *(*f)(t_bignum*))
+void			pos_pow(t_bignum **n, int power, t_bignum *(*f)(t_bignum *))
 {
 	t_bignum	*tmp;
 	int			i;
