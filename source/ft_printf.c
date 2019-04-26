@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/26 14:46:03 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 16:12:57 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void		get_queue(char *format, t_queue *queue)
 		i++;
 	str = ft_strsub(format, 0, i);
 	queue_push(queue, str);
+	ft_strdel(&str);
 }
 
 void 	decide(t_queue *q, t_string *cust_str, va_list *args)

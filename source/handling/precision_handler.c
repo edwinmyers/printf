@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   precision_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:41:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:11:53 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 16:33:03 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void		s_get_precision(t_fs *form_string, char **substr)
 void		precision_insert(t_fs *form_string, char **substr)
 {
 	int		i;
-	char	*tempfree;
 	char	*temp;
 	int		len;
 
@@ -45,9 +44,7 @@ void		precision_insert(t_fs *form_string, char **substr)
 		temp[i] = '0';
 		i++;
 	}
-	tempfree = temp;
-	temp = ft_strjoin(tempfree, *substr);
+	temp = ft_strjoin_free_left(&temp, *substr);
 	ft_strdel(substr);
-	ft_strdel(&tempfree);
 	*substr = temp;
 }

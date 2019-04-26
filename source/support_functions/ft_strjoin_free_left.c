@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_handler.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin_free_left.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 13:21:27 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 16:29:21 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/04/26 16:21:37 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/04/26 16:31:07 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void p_handler(t_fs *form_string, long long arg, char **format)
+char		*ft_strjoin_free_left(char **s1, const char *s2)
 {
-	char *substr;
-	char *temp;
+	char	*new_str;
+	size_t	i;
+	size_t	j;
+	size_t	len1;
+	size_t	len2;
 
-	if (arg > 0)
-		substr = ft_dec_to_hex(arg);
-	else
-		substr = ft_strdup("0");
-	precision_insert(form_string, &substr);
-	substr = ft_strjoin_free_right("0x", &substr);
-	width_insert(form_string, &substr);
-	*format = substr;
+	if (!*s1 || !s2)
+		return (0);
+	len1 = ft_strlen(*s1);
+	len2 = ft_strlen(s2);
+	new_str = ft_strnew(len1 + len2);
+	if (!new_str)
+		return (0);
+	i = -1;
+	j = -1;
+	while (++i < len1)
+		*(new_str + i) = (*s1)[i];
+	while (++j < len2)
+		*(new_str + i++) = s2[j];
+	*(new_str + i) = '\0';
+	free (*s1);
+	return (new_str);
 }
-
