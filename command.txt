@@ -1,0 +1,2 @@
+gcc $(FLAGS) -g tests.c $(SRCS_DIR)/*.c  -o a.out $(INCLUDES) $(NAME)
+./script.sh

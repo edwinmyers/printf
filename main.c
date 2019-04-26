@@ -3,10 +3,14 @@
 
 int main()
 {
-	int i;
-	long long p;
-	long double n;
-	
-	ft_printf("@moulitest1: %c\n", 0);
-	printf("@moulitest2: %c\n", 0);
+	int i = 0;
+
+	char *s = "%moooo\n";
+
+	ft_printf(s, i);
+	printf(s, i);
+
 }
+
+// @"string: %-#393.718lluAAA; num: -584350174\r\n"
+// @"string: %0-616.614loAAA; 

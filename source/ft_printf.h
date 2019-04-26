@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/24 15:21:44 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 14:22:20 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,7 +160,7 @@ void			fs_vector_resize(t_fs_vector *v, int new_size);
 void			fs_vector_push_back(t_fs_vector *v, t_fs elem);
 void			fs_vector_destroy(t_fs_vector *v);
 int				fs_vector_length(t_fs_vector *v);
-
+void			fs_init(t_fs *fs);
 void			fs_copy(t_fs *new_form_string, t_fs *form_string);
 void			fs_destroy(t_fs *form_string);
 
@@ -243,6 +243,9 @@ void				ft_toupper(char **str);
 char				del_minus(char **str);
 int					ft_pow(int n, int power);
 int					ft_abs(int c);
+int					find_exclusion_of_letter(char *str, char letter, char letter1);
+char				*ft_utoa(unsigned long long n);
+int					ft_isflag(int c);
 
 /*
 **parsing function
@@ -257,6 +260,8 @@ char				get_type(char **str);
 int					get_width(char **str);
 int					overflow_handle(char *str);
 void				parse(char *format, t_fs_vector *form_strings);
+int					find_the_flags(char **str);
+void				process_fs(char **str, t_fs *form_string, va_list *args);
 
 /*
 **prepare function

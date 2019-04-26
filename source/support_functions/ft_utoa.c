@@ -1,31 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_handler.c                                        :+:      :+:    :+:   */
+/*   ft_utoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/28 13:21:27 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 15:31:19 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/04/25 16:17:54 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/04/25 16:18:59 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void p_handler(t_fs *form_string, long long arg, char **format)
+static int			ft_str_len(unsigned long long n)
 {
-	char *substr;
-	char *temp;
+	size_t			i;
 
-	if (arg > 0)
-		substr = ft_dec_to_hex(arg);
-	else
-		substr = ft_strdup("0");
-	precision_insert(form_string, &substr);
-	temp = substr;
-	substr = ft_strjoin("0x", substr);
-	free(temp);
-	width_insert(form_string, &substr);
-	*format = substr;
+	i = 1;
+	while (n /= 10)
+		i++;
+	return (i);
 }
 
+char				*ft_utoa(unsigned long long n)
+{
+	unsigned long long		cpy_n;
+	size_t			len;
+	char			*new_str;
+
+	len = ft_str_len(n);
+	cpy_n = n;
+	if (!(new_str = ft_strnew(len)))
+		return (0);
+	new_str[--len] = cpy_n % 10 + '0';
+	while (cpy_n /= 10)
+		new_str[--len] = cpy_n % 10 + '0';
+	return (new_str);
+}

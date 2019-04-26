@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/24 12:48:17 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/25 18:01:20 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ void		d_handler(t_fs *form_string, long long arg, char **format)
 		add_sign(&substr, '+');
 	if (form_string->precision == 0 && arg == 0)
 		ft_bzero(substr, 1);
-	width_insert(form_string, &substr);
 	if (ft_strchr(form_string->flags, ' ') && sign != '-')
 		add_sign(&substr, ' ');
+	width_insert(form_string, &substr);
 	*format = substr;
 }

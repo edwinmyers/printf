@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handler.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 12:57:47 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/24 13:00:23 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/25 16:22:05 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		handler_item(va_list *args, t_fs *form_string, char **format)
 	else if (form_string->type == 'i')
 		d_handler(form_string, va_arg(*args, long long), format);
 	else if (form_string->type == 'o')
-		o_handler(form_string, va_arg(*args, unsigned int), format);
+		o_handler(form_string, va_arg(*args, unsigned long long), format);
 	else if (form_string->type == 'u')
 		u_handler(form_string, va_arg(*args, unsigned long long), format);
 	else if (form_string->type == 'x')

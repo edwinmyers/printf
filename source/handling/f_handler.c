@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   f_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 12:57:31 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 13:46:57 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ char			*put_bignum_strings_into_one(t_bignum *num,
 		add_sign(&str, '-');
 	else if (sign == '+')
 		add_sign(&str, '+');
-	width_insert(form_string, &str);
 	if (ft_strchr(form_string->flags, ' ') && sign != '-')
 		add_sign(&str, ' ');
+	width_insert(form_string, &str);
 	return (str);
 }
 

@@ -3,15 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   u_handler.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:15:45 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/25 16:20:04 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
+
+void		unum_insert(char **substr, unsigned long long arg, t_fs *form_string)
+{
+	char	*number;
+
+	number = ft_utoa(arg);
+	*substr = number;
+}
 void	u_cast(t_fs *form_string, unsigned long long *arg)
 {
 	if (form_string->size == NULL)
@@ -30,7 +38,7 @@ void	u_handler(t_fs *form_string, unsigned long long arg, char **format)
 
 	substr = NULL;
 	u_cast(form_string, &arg);
-	num_insert(&substr, arg, form_string);
+	unum_insert(&substr, arg, form_string);
 	precision_insert(form_string, &substr);
 	width_insert(form_string, &substr);
 	*format = substr;
