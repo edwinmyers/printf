@@ -5,7 +5,7 @@ int main()
 {
 	int i = 0;
 
-	char *s = "%moooo\n";
+	char *s = "% Zooo";
 
 	ft_printf(s, i);
 	printf(s, i);

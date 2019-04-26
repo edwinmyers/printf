@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:58:07 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 14:53:02 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 15:59:41 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int			find_the_flags(char **str)
 		}
 		i++;
 	}
-	if (!ft_isflag((*str)[i]))
+	if (!ft_isflag((*str)[i]) && (*str)[i] != '%')
 		i--;
 	return (i);
 }
