@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/26 22:19:40 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:29:37 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,8 @@ void			do_bignum_arithm(t_bignum *num, int precision);
 t_bignum		*get_the_bits(long double arg);
 char			*cust_strdup(t_string *src);
 char			*cust_strdup_free(t_string *src);
+char			*cust_strjoin_left(t_string *s1, char *s2);
+char			*cust_strjoin_right(char *s1, t_string *s2);
 char			*put_bignum_strings_into_one(t_bignum *num,
 											t_fs *form_string, char sign);
 
@@ -249,7 +251,7 @@ char				*ft_utoa(unsigned long long n);
 int					ft_isflag(int c);
 char				*ft_strjoin_free(char *s1, char *s2, int n);
 void				str_forward(char **s1);
-void				ft_strsub_free(char **s, unsigned int start, size_t len);
+char				*ft_strchr_free(char *str, int c);
 
 /*
 **parsing function

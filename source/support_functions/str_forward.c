@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/26 21:34:48 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:56:36 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:23:55 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	str_forward(char **s1)
 {
 	char	*new_s1;
 
-	if (*s1 == NULL)
+	if (*s1 == NULL && **s1 == '\0')
 		return ;
 	new_s1 = ft_strdup(*s1 + 1);
 	ft_strdel(s1);
