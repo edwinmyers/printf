@@ -6,18 +6,17 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/26 16:12:57 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:58:35 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
 void		get_queue(char *format, t_queue *queue)
 {
-	char *str;
-	int i;
-	char *temp;
+	char	*str;
+	int		i;
+	char	*temp;
 
 	while (format && ft_strchr(format, '%'))
 	{
@@ -42,12 +41,11 @@ void		get_queue(char *format, t_queue *queue)
 	ft_strdel(&str);
 }
 
-void 	decide(t_queue *q, t_string *cust_str, va_list *args)
+void		decide(t_queue *q, t_string *cust_str, va_list *args)
 {
-	char *str;
-	t_fs form_string;
-	int i;
-	char *temp;
+	char	*str;
+	t_fs	form_string;
+	int		i;
 
 	fs_init(&form_string);
 	while (q->size)
@@ -57,13 +55,12 @@ void 	decide(t_queue *q, t_string *cust_str, va_list *args)
 			str_pushstr(cust_str, str);
 		else
 		{
-			temp = str;
-			str = ft_strdup(temp + 1);
-			ft_strdel(&temp);
+			str_forward(&str);
 			process_fs(&str, &form_string, args);
 			if (str)
 				str_pushstr(cust_str, str);
-			if (!find_exclusion_of_letter(str, ' ', '\0') && form_string.type == 'c')
+			if (!find_exclusion_of_letter(str, ' ', '\0')
+				&& form_string.type == 'c')
 				str_pushchar(cust_str, '\0');
 		}
 		ft_strdel(&str);
@@ -71,7 +68,7 @@ void 	decide(t_queue *q, t_string *cust_str, va_list *args)
 	fs_destroy(&form_string);
 }
 
-int					ft_printf(char *format, ...)
+int			ft_printf(char *format, ...)
 {
 	va_list			args;
 	t_string		str;

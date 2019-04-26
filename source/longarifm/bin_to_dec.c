@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:45 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 18:24:25 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:19:19 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void			do_frac_part(t_bignum *num)
 	}
 	str_destroy(&num->frac_part);
 	str_push_cs(&num->frac_part, &sum->frac_part);
+	big_num_destroy(&sum);
 }
 
 void			bin_to_dec(t_bignum *num)

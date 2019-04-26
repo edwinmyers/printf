@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:44:04 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/26 14:44:43 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:29:57 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ char		get_type(char **str)
 	char	*temp;
 
 	type = 0;
-
 	if (ft_isflag(**str) || **str == '%')
 	{
-		temp = *str;	
-		type = **str;	
+		temp = *str;
+		type = **str;
 		*str = ft_strdup(temp + 1);
 		ft_strdel(&temp);
 	}

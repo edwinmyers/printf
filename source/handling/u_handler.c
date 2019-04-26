@@ -6,20 +6,21 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/25 16:20:04 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:23:54 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-
-void		unum_insert(char **substr, unsigned long long arg, t_fs *form_string)
+void	unum_insert(char **substr, unsigned
+						long long arg, t_fs *form_string)
 {
 	char	*number;
 
 	number = ft_utoa(arg);
 	*substr = number;
 }
+
 void	u_cast(t_fs *form_string, unsigned long long *arg)
 {
 	if (form_string->size == NULL)

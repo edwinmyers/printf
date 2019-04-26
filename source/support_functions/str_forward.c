@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free_left.c                             :+:      :+:    :+:   */
+/*   str_forward.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/26 16:21:37 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 16:31:07 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/04/26 21:34:48 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/04/26 21:56:36 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-char		*ft_strjoin_free_left(char **s1, const char *s2)
+void	str_forward(char **s1)
 {
-	char	*new_str;
-	size_t	i;
-	size_t	j;
-	size_t	len1;
-	size_t	len2;
+	char	*new_s1;
 
-	if (!*s1 || !s2)
-		return (0);
-	len1 = ft_strlen(*s1);
-	len2 = ft_strlen(s2);
-	new_str = ft_strnew(len1 + len2);
-	if (!new_str)
-		return (0);
-	i = -1;
-	j = -1;
-	while (++i < len1)
-		*(new_str + i) = (*s1)[i];
-	while (++j < len2)
-		*(new_str + i++) = s2[j];
-	*(new_str + i) = '\0';
-	free (*s1);
-	return (new_str);
+	if (*s1 == NULL)
+		return ;
+	new_s1 = ft_strdup(*s1 + 1);
+	ft_strdel(s1);
+	*s1 = new_s1;
 }

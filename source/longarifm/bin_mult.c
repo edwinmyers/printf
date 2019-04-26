@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:42 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 18:21:07 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:08:53 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_bignum		*bin_mult(t_bignum *l)
 		str_pushchar(&res->int_part, '0');
 	if (str_len(&res->frac_part) == 0)
 		str_pushchar(&res->frac_part, '0');
+	str_destroy(&new_frac_part);
 	return (res);
 }

@@ -6,13 +6,13 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 16:17:54 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/25 16:18:59 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:31:40 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-static int			ft_str_len(unsigned long long n)
+static int	ft_str_len(unsigned long long n)
 {
 	size_t			i;
 
@@ -22,11 +22,11 @@ static int			ft_str_len(unsigned long long n)
 	return (i);
 }
 
-char				*ft_utoa(unsigned long long n)
+char		*ft_utoa(unsigned long long n)
 {
-	unsigned long long		cpy_n;
-	size_t			len;
-	char			*new_str;
+	unsigned long long	cpy_n;
+	size_t				len;
+	char				*new_str;
 
 	len = ft_str_len(n);
 	cpy_n = n;

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 12:55:41 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 16:26:10 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:12:08 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void		x_handler(t_fs *form_string,
 			form_string->width -= 2;
 			width_insert(form_string, &substr);
 		}
-		substr = ft_strjoin_free_right("0x", &substr);
+		substr = ft_strjoin_free("0x", substr, 2);
 	}
 	width_insert(form_string, &substr);
 	if (form_string->type == 'X')

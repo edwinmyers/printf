@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:58:07 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 15:59:41 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:28:54 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ int			ft_isflag(int c)
 	return (0);
 }
 
-
 int			find_the_flags(char **str)
 {
 	int i;
 
 	i = 0;
-	while (((*str)[i] && !ft_isalpha((*str)[i])) || ((*str)[i] == 'l' || (*str)[i] == 'L' || (*str)[i] == 'h'))
+	while (((*str)[i] && !ft_isalpha((*str)[i])) || ((*str)[i] == 'l'
+							|| (*str)[i] == 'L' || (*str)[i] == 'h'))
 	{
 		if ((*str)[i + 1] && (*str)[i + 1] == '%')
 		{

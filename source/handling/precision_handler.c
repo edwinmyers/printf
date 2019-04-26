@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:41:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 17:24:47 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:11:28 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		precision_insert(t_fs *form_string, char **substr)
 		temp[i] = '0';
 		i++;
 	}
-	temp = ft_strjoin_free_left(&temp, *substr);
-	ft_strdel(substr);
+	temp = ft_strjoin_free(temp, *substr, 3);
+	// ft_strdel(substr);
 	*substr = temp;
 }

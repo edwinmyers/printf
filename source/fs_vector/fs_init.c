@@ -6,13 +6,13 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:59:00 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 15:59:07 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 21:40:23 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void fs_init(t_fs *fs)
+void	fs_init(t_fs *fs)
 {
 	fs->flags = NULL;
 	fs->size = NULL;

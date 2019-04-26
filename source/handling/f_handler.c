@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 18:00:46 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/26 22:19:56 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ char			*put_bignum_strings_into_one(t_bignum *num,
 		temp = cust_strjoin_left(&num->int_part, ".");
 		temp2 = cust_strdup(&num->frac_part);
 		temp3 = ft_strsub(temp2, 0, form_string->precision);
-		str = ft_strjoin(temp, temp3);
-		ft_strdel(&temp);
-		ft_strdel(&temp2);
-		ft_strdel(&temp3);
+		str = ft_strjoin_free(temp, temp3, 3);
 	}
 	big_num_destroy(&num);
 	return (str);
@@ -57,7 +54,7 @@ void			f_handler(t_fs *form_string, double arg, char **format)
 		add_sign(&str, ' ');
 	width_insert(form_string, &str);
 	if (ft_strchr(form_string->flags, '#') && form_string->precision == 0)
-		*format = ft_strjoin_free_left(&str, ".");
+		*format = ft_strjoin_free(str, ".", 1);
 	else
 		*format = str;
 }

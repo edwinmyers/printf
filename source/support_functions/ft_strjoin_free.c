@@ -1,29 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   find_exclusion.c                                   :+:      :+:    :+:   */
+/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/24 15:57:02 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:30:59 by vice-wra         ###   ########.fr       */
+/*   Created: 2019/04/26 22:02:39 by vice-wra          #+#    #+#             */
+/*   Updated: 2019/04/26 22:10:05 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	find_exclusion_of_letter(char *str, char letter, char letter1)
+char	*ft_strjoin_free(char *s1, char *s2, int n)
 {
-	int i;
+	char	*res;
+	size_t	len1;
+	size_t	len2;
 
-	i = 0;
-	if (str == NULL)
-		return (-1);
-	while (str[i])
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	res = NULL;
+	res = ft_strnew(len1 + len2);
+	if (res == NULL)
+		return (NULL);
+	ft_strcat(res, s1);
+	ft_strcat(res, s2);
+	if (n == 1)
+		free(s1);
+	else if (n == 2)
+		free(s2);
+	else if (n == 3)
 	{
-		if (str[i] != letter && str[i] != letter1)
-			return (1);
-		i++;
+		free(s1);
+		free(s2);
 	}
-	return (0);
+	return (res);
 }

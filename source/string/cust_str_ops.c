@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cust_str_ops.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:18:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 14:55:08 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/26 22:00:42 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,25 @@ char			*cust_strdup(t_string *src)
 		i++;
 	}
 	new_s1[i] = '\0';
+	return (new_s1);
+}
+
+char			*cust_strdup_free(t_string *src)
+{
+	int			i;
+	char		*new_s1;
+
+	if (!src->size)
+		return (NULL);
+	i = 0;
+	if (!(new_s1 = malloc(sizeof(char) * (src->size + 1))))
+		return (0);
+	while (i < src->size)
+	{
+		new_s1[i] = str_at(src, i);
+		i++;
+	}
+	new_s1[i] = '\0';
+	str_destroy(src);
 	return (new_s1);
 }
