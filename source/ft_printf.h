@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/26 22:29:37 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/27 17:50:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -246,7 +246,7 @@ void				ft_toupper(char **str);
 char				del_minus(char **str);
 int					ft_pow(int n, int power);
 int					ft_abs(int c);
-int					find_exclusion_of_letter(char *str, char letter, char letter1);
+int					find_exclusion_of_letter(char *str, char letter, char letter1, char letter2);
 char				*ft_utoa(unsigned long long n);
 int					ft_isflag(int c);
 char				*ft_strjoin_free(char *s1, char *s2, int n);

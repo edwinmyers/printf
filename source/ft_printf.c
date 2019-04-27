@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/26 22:39:11 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/27 18:49:37 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,38 @@ void		get_queue(char *format, t_queue *queue)
 		str = ft_strsub(format, 0, i + 1);
 		queue_push(queue, str);
 		ft_strdel(&str);
-		format = format + i + 1;
+		if (format[i])
+			format = format + i + 1;
+		else
+			format = format + i;
 	}
 	i = ft_strchr(format, '\0') - format;
 	str = ft_strsub(format, 0, i);
 	queue_push(queue, str);
 	ft_strdel(&str);
+}
+
+void		put_into_cust_str(t_fs *form_string, t_string *cust_str, char *str)
+{
+	if (str)
+	{	
+		if (form_string->type == 'c' && 
+				!find_exclusion_of_letter(str, ' ', '\0', '0'))
+		{
+			if (!ft_strchr(form_string->flags, '-'))
+			{
+				str_pushstr(cust_str, str);
+				str_pushchar(cust_str, '\0');
+			}
+			else
+			{
+				str_pushchar(cust_str, '\0');
+				str_pushstr(cust_str, str);
+			}
+		}
+		else
+			str_pushstr(cust_str, str);
+	}
 }
 
 void		decide(t_queue *q, t_string *cust_str, va_list *args)
@@ -50,11 +76,7 @@ void		decide(t_queue *q, t_string *cust_str, va_list *args)
 		{
 			str_forward(&str);
 			process_fs(&str, &form_string, args);
-			if (str)
-				str_pushstr(cust_str, str);
-			if (!find_exclusion_of_letter(str, ' ', '\0')
-				&& form_string.type == 'c')
-				str_pushchar(cust_str, '\0');
+			put_into_cust_str(&form_string, cust_str, str);
 		}
 		ft_strdel(&str);
 	}

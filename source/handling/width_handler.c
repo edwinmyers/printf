@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   width_handler.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:39:51 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:17:47 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/27 17:46:52 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		width_insert_left(char **new_str, char *substr, int width, char c)
 
 	i = 0;
 	sign = -1;
-	if (c == '0' && !ft_isalnum(*substr) && *substr != '%')
+	if (*substr && c == '0' && !ft_isalnum(*substr) && *substr != '%')
 		sign = del_minus(&substr);
 	while (width-- > 0)
 		(*new_str)[i++] = c;
@@ -39,7 +39,7 @@ void		width_insert_right(char **new_str, char *substr, int width, char c)
 	char	sign;
 
 	i = 0;
-	if (c == '0' && !ft_isalnum(*substr) && *substr != '%')
+	if (*substr && c == '0' && !ft_isalnum(*substr) && *substr != '%')
 		sign = del_minus(&substr);
 	while (*substr)
 		(*new_str)[i++] = *substr++;
@@ -64,8 +64,7 @@ void		width_insert(t_fs *form_string, char **substr)
 	if (width <= 0)
 		return ;
 	new_str = ft_strnew((ft_strlen(*substr) + width));
-	if (ft_strchr(form_string->flags, '0') ||
-		(ft_strchr(form_string->flags, '0') && form_string->type == 'f'))
+	if (ft_strchr(form_string->flags, '0'))
 		c = '0';
 	if (ft_strchr(form_string->flags, '-'))
 		width_insert_right(&new_str, *substr, width, c);

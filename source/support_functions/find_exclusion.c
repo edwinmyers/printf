@@ -6,13 +6,13 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 15:57:02 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:30:59 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/27 17:52:47 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	find_exclusion_of_letter(char *str, char letter, char letter1)
+int	find_exclusion_of_letter(char *str, char letter, char letter1, char letter2)
 {
 	int i;
 
@@ -21,7 +21,7 @@ int	find_exclusion_of_letter(char *str, char letter, char letter1)
 		return (-1);
 	while (str[i])
 	{
-		if (str[i] != letter && str[i] != letter1)
+		if (str[i] != letter && str[i] != letter1 && str[i] != letter2)
 			return (1);
 		i++;
 	}

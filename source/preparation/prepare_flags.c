@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 19:51:22 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:40:25 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/27 18:26:20 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	prepare_item_flags(t_fs *form_string)
 		ft_sym_del(&form_string->flags, '-');
 	if (ft_strchr(form_string->flags, '0') &&
 		(ft_strchr(form_string->flags, '-') || (form_string->precision >= 0
-											&& form_string->type != 'f')))
+											&& (form_string->type != 'f') && form_string->type != 'c' && form_string->type != 's' && form_string->type != '%')))
 		ft_sym_del(&form_string->flags, '0');
 	if (ft_strchr(form_string->flags, '#') &&
 		!ft_strchr("xoXf", form_string->type))

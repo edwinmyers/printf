@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:49:00 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/26 14:38:18 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/27 18:38:10 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,6 @@ void	get_fs(char **str, t_fs *form_string)
 	form_string->precision = get_precision(str);
 	form_string->size = get_size(str);
 	form_string->type = get_type(str);
-	ft_strdel(str);
+	if (**str == '\0')
+		ft_strdel(str);
 }
