@@ -16,8 +16,40 @@ NAME := libftprintf.a
 
 FLAGS := -Wall -Wextra -Werror
 
-SRC_DIR := source/string/ \
-			source/fs_vector/ source/handling/ source/longarifm/ source/parsing/ \
+SRC_DIR := source/string/cust_str_ops.c source/string/str_at.c \
+	source/string/str_create_custstr.c source/string/str_create_size.c \
+	source/string/str_create_str.c source/string/str_custjoin.c \
+	source/string/str_cut.c source/string/str_destroy.c \
+	source/string/str_len.c source/string/str_print.c \
+	source/string/str_pushchar.c source/string/str_pushstr.c \
+	source/string/str_push_cs.c source/string/str_resize.c \
+	source/string/str_rev.c source/string/to_cstr.c \
+
+	source/fs_vector/fs_copy.c source/fs_vector/fs_destroy.c \
+	source/fs_vector/fs_init.c source/fs_vector/fs_vector_create.c \
+	source/fs_vector/fs_vector_destroy.c source/fs_vector/fs_vector_length.c \
+	source/fs_vector/fs_vector_push_back.c source/fs_vector/fs_vector_resize.c \
+	
+	source/handling/cast.c source/handling/c_handler.c \
+	source/handling/d_handler.c source/handling/f_handler.c \
+	source/handling/handler.c source/handling/lf_handler.c \
+	source/handling/o_handler.c source/handling/precision_handler.c \
+	source/handling/pr_handler.c source/handling/pr_handler.c \
+	source/handling/p_handler.c source/handling/sign_ops.c \
+	source/handling/s_handler.c source/handling/u_handler.c \
+	source/handling/width_handler.c source/handling/x_handler.c \
+		
+	source/longarifm/bignum_create.c source/longarifm/bignum_create_by_str.c \
+	source/longarifm/bignum_create_by_str.c source/longarifm/bignum_destroy.c \
+	source/longarifm/bin_div.c source/longarifm/bin_mult.c \
+	source/longarifm/bin_sum.c source/longarifm/bin_to_dec.c \
+	source/longarifm/dec_div.c source/longarifm/dec_mult.c \
+	source/longarifm/dec_sum.c source/longarifm/get_bits.c \
+	source/longarifm/pos_pow.c source/longarifm/round.c \
+	source/longarifm/swap_comp_str.c \
+
+	
+	source/parsing/ \
  			source/preparation/ source/queue/ source/support_functions/ source/
 
 OBJ_DIR := objects
