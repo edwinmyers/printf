@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/29 17:39:16 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:30:25 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void		get_queue(char *format, t_queue *queue)
 void		put_into_cust_str(t_fs *form_string, t_string *cust_str, char *str)
 {
 	if (str)
-	{	
-		if (form_string->type == 'c' && 
+	{
+		if (form_string->type == 'c' &&
 				g_crutch == 1)
 		{
 			if (!ft_strchr(form_string->flags, '-'))
@@ -89,7 +89,8 @@ int			ft_printf(char *format, ...)
 	t_string		str;
 	t_queue			queue;
 
-	if (!format || *format == '\0' || (ft_strlen(format) == 1 && *format == '%'))
+	if (!format || *format == '\0' || (ft_strlen(format) == 1 &&
+												*format == '%'))
 		return (0);
 	va_start(args, format);
 	queue_create(&queue);

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/29 17:49:17 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:37:09 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	unum_insert(char **substr, unsigned
 	*substr = number;
 }
 
-void	u_cast(t_fs *form_string, unsigned long long *arg)
+void		u_cast(t_fs *form_string, unsigned long long *arg)
 {
 	if (form_string->size == NULL)
 		*arg = (unsigned int)*arg;
@@ -33,7 +33,7 @@ void	u_cast(t_fs *form_string, unsigned long long *arg)
 		*arg = (unsigned short int)*arg;
 }
 
-void	u_handler(t_fs *form_string, unsigned long long arg, char **format)
+void		u_handler(t_fs *form_string, unsigned long long arg, char **format)
 {
 	char	*substr;
 

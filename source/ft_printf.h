@@ -6,19 +6,19 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/29 17:49:02 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:34:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H_
-# define FT_PRINTF_H_
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdarg.h>
 
-short g_crutch;
+short	g_crutch;
 
 typedef struct		s_node
 {
@@ -89,84 +89,87 @@ union
 **Main function
 */
 
-int				ft_printf(char *format, ...);
-void			decide(t_queue *q, t_string *cust_str, va_list *args);
-void			get_queue(char *format, t_queue *queue);
-void			arr_zero(int *arr, int size);
-char			*get_flags(char **str);
-void			get_fs(char **str, t_fs *form_string);
-int				get_precision(char **str);
-char			*get_size(char **str);
-char			get_type(char **str);
-int				get_width(char **str);
-int				overflow_handle(char *str);
-void			parse(char *format, t_fs_vector *form_strings);
-void			d_handler(t_fs *form_string, long long arg, char **format);
-void			i_handler(t_fs *form_string, long long arg, char **format);
-void			o_handler(t_fs *form_string,
+int					ft_printf(char *format, ...);
+void				decide(t_queue *q, t_string *cust_str, va_list *args);
+void				get_queue(char *format, t_queue *queue);
+void				arr_zero(int *arr, int size);
+char				*get_flags(char **str);
+void				get_fs(char **str, t_fs *form_string);
+int					get_precision(char **str);
+char				*get_size(char **str);
+char				get_type(char **str);
+int					get_width(char **str);
+int					overflow_handle(char *str);
+void				parse(char *format, t_fs_vector *form_strings);
+void				d_handler(t_fs *form_string, long long arg, char **format);
+void				i_handler(t_fs *form_string, long long arg, char **format);
+void				o_handler(t_fs *form_string,
 					unsigned long long arg, char **format);
-void			u_handler(t_fs *form_string,
+void				u_handler(t_fs *form_string,
 					unsigned long long arg, char **format);
-void			x_handler(t_fs *form_string,
+void				x_handler(t_fs *form_string,
 					unsigned long long arg, char **format);
-void			xx_handler(t_fs *form_string, long long arg, char **format);
-void			lf_handler(t_fs *form_string, long double arg, char **format);
-void			f_handler(t_fs *form_string, double arg, char **format);
-void			c_handler(t_fs *form_string, int arg, char **format);
-void			s_handler(t_fs *form_string, char *arg, char **format);
-void			p_handler(t_fs *form_string, long long arg, char **format);
-void			pr_handler(t_fs *form_string, char **format);
-void			handler(va_list *args,
+void				xx_handler(t_fs *form_string, long long arg, char **format);
+void				lf_handler(t_fs *form_string, long double arg,
+															char **format);
+void				f_handler(t_fs *form_string, double arg, char **format);
+void				c_handler(t_fs *form_string, int arg, char **format);
+void				s_handler(t_fs *form_string, char *arg, char **format);
+void				p_handler(t_fs *form_string, long long arg, char **format);
+void				pr_handler(t_fs *form_string, char **format);
+void				handler(va_list *args,
 					t_fs_vector *form_strings, char **format);
-void			s_get_width(t_fs *form_string, char **substr);
-void			s_get_precision(t_fs *form_string, char **substr);
-void			prepare(t_fs_vector *form_strings);
-void			prepare_item(t_fs *form_string);
-char			get_sign(t_fs *form_string, long long arg);
-void			width_insert(t_fs *form_string, char **substr);
-void			ft_replace(char **str, char *substr);
-void			precision_insert(t_fs *form_string, char **substr);
-void			width_insert_left(char **new_str,
+void				s_get_width(t_fs *form_string, char **substr);
+void				s_get_precision(t_fs *form_string, char **substr);
+void				prepare(t_fs_vector *form_strings);
+void				prepare_item(t_fs *form_string);
+char				get_sign(t_fs *form_string, long long arg);
+void				width_insert(t_fs *form_string, char **substr);
+void				ft_replace(char **str, char *substr);
+void				precision_insert(t_fs *form_string, char **substr);
+void				width_insert_left(char **new_str,
 					char *substr, int width, char c);
-void			width_insert_right(char **new_str,
+void				width_insert_right(char **new_str,
 					char *substr, int width, char c);
-void			add_sign(char **str, char sign);
-void			num_insert(char **substr, long long arg);
-void			u_cast(t_fs *form_string, unsigned long long *arg);
-char			*dec_to_octal(unsigned long long n);
-void			handler_item(va_list *args, t_fs *form_string, char **format);
-void			cast(t_fs *form_string, long long *arg);
-t_string		cust_strsub(t_string *str, unsigned int start, size_t len);
-char			f_get_sign(t_fs *form_string, long double arg);
-void			do_bignum_arithm(t_bignum *num, int precision);
-t_bignum		*get_the_bits(long double arg);
-char			*cust_strdup(t_string *src);
-char			*cust_strdup_free(t_string *src);
-char			*cust_strjoin_left(t_string *s1, char *s2);
-char			*cust_strjoin_right(char *s1, t_string *s2);
-char			*put_bignum_strings_into_one(t_bignum *num,
+void				add_sign(char **str, char sign);
+void				num_insert(char **substr, long long arg);
+void				u_cast(t_fs *form_string,
+									unsigned long long *arg);
+char				*dec_to_octal(unsigned long long n);
+void				handler_item(va_list *args, t_fs *form_string,
+													char **format);
+void				cast(t_fs *form_string, long long *arg);
+t_string			cust_strsub(t_string *str, unsigned int start, size_t len);
+char				f_get_sign(t_fs *form_string, long double arg);
+void				do_bignum_arithm(t_bignum *num, int precision);
+t_bignum			*get_the_bits(long double arg);
+char				*cust_strdup(t_string *src);
+char				*cust_strdup_free(t_string *src);
+char				*cust_strjoin_left(t_string *s1, char *s2);
+char				*cust_strjoin_right(char *s1, t_string *s2);
+char				*put_bignum_strings_into_one(t_bignum *num,
 											t_fs *form_string);
 
 /*
 **Char_vec function
 */
 
-t_char_vec		ft_cvec_create(int size);
-void			ft_cvec_resize(t_char_vec *v);
-void			ft_cvec_push_back(t_char_vec *v, char elem);
+t_char_vec			ft_cvec_create(int size);
+void				ft_cvec_resize(t_char_vec *v);
+void				ft_cvec_push_back(t_char_vec *v, char elem);
 
 /*
 **fs_vector function
 */
 
-t_fs_vector		fs_vector_create(int size);
-void			fs_vector_resize(t_fs_vector *v, int new_size);
-void			fs_vector_push_back(t_fs_vector *v, t_fs elem);
-void			fs_vector_destroy(t_fs_vector *v);
-int				fs_vector_length(t_fs_vector *v);
-void			fs_init(t_fs *fs);
-void			fs_copy(t_fs *new_form_string, t_fs *form_string);
-void			fs_destroy(t_fs *form_string);
+t_fs_vector			fs_vector_create(int size);
+void				fs_vector_resize(t_fs_vector *v, int new_size);
+void				fs_vector_push_back(t_fs_vector *v, t_fs elem);
+void				fs_vector_destroy(t_fs_vector *v);
+int					fs_vector_length(t_fs_vector *v);
+void				fs_init(t_fs *fs);
+void				fs_copy(t_fs *new_form_string, t_fs *form_string);
+void				fs_destroy(t_fs *form_string);
 
 /*
 **long_arifm function
@@ -247,7 +250,8 @@ void				ft_toupper(char **str);
 char				del_minus(char **str);
 int					ft_pow(int n, int power);
 int					ft_abs(int c);
-int					find_exclusion_of_letter(char *str, char letter, char letter1, char letter2);
+int					find_exclusion_of_letter(char *str, char letter,
+										char letter1, char letter2);
 char				*ft_utoa(unsigned long long n);
 int					ft_isflag(int c);
 char				*ft_strjoin_free(char *s1, char *s2, int n);

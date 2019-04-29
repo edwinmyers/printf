@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:39:51 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/29 17:08:01 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:37:44 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void		width_insert_left(char **new_str, char *substr, int width, char c)
 
 	i = 0;
 	sign = -1;
-	if (*substr && c == '0' && (*substr == '-' || *substr == '+' || *substr == ' '))
+	if (*substr && c == '0' && (*substr == '-' || *substr == '+' ||
+													*substr == ' '))
 		sign = del_minus(&substr);
 	while (width-- > 0)
 		(*new_str)[i++] = c;
@@ -39,7 +40,8 @@ void		width_insert_right(char **new_str, char *substr, int width, char c)
 	char	sign;
 
 	i = 0;
-	if (*substr && c == '0' && (*substr == '-' || *substr == '+' || *substr == ' '))
+	if (*substr && c == '0' && (*substr == '-' || *substr == '+' ||
+													*substr == ' '))
 		sign = del_minus(&substr);
 	while (*substr)
 		(*new_str)[i++] = *substr++;

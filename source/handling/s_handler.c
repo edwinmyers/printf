@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 14:37:33 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/27 18:24:23 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:36:16 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void		s_handler(t_fs *form_string, char *arg, char **format)
 	else if (form_string->precision == 0)
 		ft_bzero(substr, 1);
 	if (form_string->width != 0)
-			s_get_width(form_string, &substr);
+		s_get_width(form_string, &substr);
 	*format = substr;
-
 }

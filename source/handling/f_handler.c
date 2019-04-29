@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/29 17:49:55 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:36:06 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char			*put_bignum_strings_into_one(t_bignum *num,
 	return (str);
 }
 
-static void add_sign_float(char sign, char **str, t_fs *form_string)
+static void		add_sign_float(char sign, char **str, t_fs *form_string)
 {
 	if (sign == '-')
 		add_sign(str, '-');

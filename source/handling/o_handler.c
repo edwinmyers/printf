@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:33:32 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/29 16:24:47 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 18:36:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	o_handler(t_fs *form_string, unsigned long long arg, char **format)
 		substr = dec_to_octal(arg);
 	else
 		substr = ft_strdup("0");
-	if (form_string->precision == 0 && !ft_strchr(form_string->flags, '#') && arg == 0)
+	if (form_string->precision == 0 && !ft_strchr(form_string->flags, '#')
+															&& arg == 0)
 		substr = ft_strnew(0);
 	if (ft_strchr(form_string->flags, '#') && form_string->precision
 									<= (int)ft_strlen(substr) && arg != 0)
