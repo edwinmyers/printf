@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/30 12:55:41 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/27 18:02:05 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 16:24:55 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		x_handler(t_fs *form_string,
 		substr = ft_dec_to_hex(arg);
 	else if (form_string->precision != 0)
 		substr = ft_strdup("0");
-	if (form_string->precision == 0)
+	if (form_string->precision == 0 && arg == 0)
 		substr = ft_strnew(0);
 	else if (form_string->precision > 0)
 		precision_insert(form_string, &substr);

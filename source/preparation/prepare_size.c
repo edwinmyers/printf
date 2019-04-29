@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 19:49:38 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 22:14:29 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:50:20 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		prepare_item_size_f(t_fs *form_string)
 
 void		prepare_item_size(t_fs *form_string)
 {
-	int		i;
 	char	*new_size;
 
 	new_size = NULL;

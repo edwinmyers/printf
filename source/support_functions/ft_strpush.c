@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strpush.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 22:44:53 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/20 16:34:50 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/29 17:34:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,11 @@ void		ft_strpush(char **str1, char str2)
 	if (*str1 != NULL)
 		len1 = (int)ft_strlen(*str1);
 	else
-		len1 = 0;
+	{
+		*str1 = ft_strnew(1);
+		(*str1)[0] = str2;
+		return ;	
+	}
 	new_str = malloc(sizeof(char) * (len1 + 2));
 	while (i < len1)
 	{

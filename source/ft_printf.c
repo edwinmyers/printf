@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/20 16:35:29 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/27 18:49:37 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:39:16 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		put_into_cust_str(t_fs *form_string, t_string *cust_str, char *str)
 	if (str)
 	{	
 		if (form_string->type == 'c' && 
-				!find_exclusion_of_letter(str, ' ', '\0', '0'))
+				g_crutch == 1)
 		{
 			if (!ft_strchr(form_string->flags, '-'))
 			{
@@ -74,13 +74,13 @@ void		decide(t_queue *q, t_string *cust_str, va_list *args)
 			str_pushstr(cust_str, str);
 		else
 		{
-			str_forward(&str);
+			move_char_pointer(&str);
 			process_fs(&str, &form_string, args);
 			put_into_cust_str(&form_string, cust_str, str);
+			fs_destroy(&form_string);
 		}
 		ft_strdel(&str);
 	}
-	fs_destroy(&form_string);
 }
 
 int			ft_printf(char *format, ...)

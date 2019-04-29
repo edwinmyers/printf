@@ -6,14 +6,14 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/28 18:24:46 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:23:54 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:49:17 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	unum_insert(char **substr, unsigned
-						long long arg, t_fs *form_string)
+static void	unum_insert(char **substr, unsigned
+						long long arg)
 {
 	char	*number;
 
@@ -39,7 +39,9 @@ void	u_handler(t_fs *form_string, unsigned long long arg, char **format)
 
 	substr = NULL;
 	u_cast(form_string, &arg);
-	unum_insert(&substr, arg, form_string);
+	unum_insert(&substr, arg);
+	if (form_string->precision == 0 && arg == 0)
+		substr = ft_strnew(0);
 	precision_insert(form_string, &substr);
 	width_insert(form_string, &substr);
 	*format = substr;

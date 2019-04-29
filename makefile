@@ -6,7 +6,7 @@
 #    By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:24:28 by nparker           #+#    #+#              #
-#    Updated: 2019/04/25 17:06:40 by vice-wra         ###   ########.fr        #
+#    Updated: 2019/04/29 18:05:55 by vice-wra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,9 @@ SOURCES := $(wildcard $(SEARCH_WILD))
 all:$(NAME)
 
 $(NAME):
-	@$(CC) -g -c $(SOURCES) -I $(INCLUDES)
+	@$(CC)  $(FLAGS) -g -c $(SOURCES) -I $(INCLUDES)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@rm -rf $(OBJECTS)
 clean:
 	@rm -rf $(OBJECTS)
 

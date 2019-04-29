@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/19 20:17:11 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 22:10:34 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:46:22 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			lf_handler(t_fs *form_string, long double arg, char **format)
 	num = get_the_bits(arg);
 	bin_to_dec(num);
 	rround(&num, form_string->precision);
-	str = put_bignum_strings_into_one(num, form_string, sign);
+	str = put_bignum_strings_into_one(num, form_string);
 	if (sign == '-')
 		add_sign(&str, '-');
 	else if (sign == '+')

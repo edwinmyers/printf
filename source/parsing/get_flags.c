@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 21:37:36 by sindenis          #+#    #+#             */
-/*   Updated: 2019/04/26 21:57:58 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:30:50 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char		*get_flags(char **str)
 			ft_strpush(&flags, **str);
 		else if (**str == '0' && states[4]++ == 0)
 			ft_strpush(&flags, **str);
-		str_forward(str);
+		move_char_pointer(str);
 	}
 	return (flags);
 }

@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 12:57:47 by nparker           #+#    #+#             */
-/*   Updated: 2019/04/25 16:22:05 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:46:06 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void		handler_item(va_list *args, t_fs *form_string, char **format)
 void		handler(va_list *args, t_fs_vector *form_strings, char **format)
 {
 	int		i;
-	char	*temp;
 
 	i = -1;
 	while (++i < fs_vector_length(form_strings))

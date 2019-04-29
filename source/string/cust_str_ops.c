@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 14:18:44 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 22:29:02 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:43:39 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 t_string		cust_strsub(t_string *str, unsigned int start, size_t len)
 {
 	t_string	new_str;
-	size_t		i;
+	int			i;
 
 	i = 0;
 	new_str = str_create_size(len);
-	while (i < len && i++ < str->size)
+	while (i < (int)len && i++ < str->size)
 		str_pushchar(&new_str, str_at(str, start++));
 	return (new_str);
 }
@@ -39,7 +39,7 @@ char			*cust_strjoin_left(t_string *s1, char *s2)
 		return (0);
 	i = -1;
 	j = -1;
-	while (++i < s1->size)
+	while (++i < (size_t)s1->size)
 		*(new_str + i) = str_at(s1, i);
 	while (++j < len)
 		*(new_str + i++) = *(s2 + j);
@@ -64,7 +64,7 @@ char			*cust_strjoin_right(char *s1, t_string *s2)
 	j = -1;
 	while (++i < len)
 		*(new_str + i) = *(s1 + i);
-	while (++j < s2->size)
+	while (++j < (size_t)s2->size)
 		*(new_str + i++) = str_at(s2, j);
 	*(new_str + i) = '\0';
 	return (new_str);

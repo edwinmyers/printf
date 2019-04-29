@@ -6,7 +6,7 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 20:33:50 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 21:22:58 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:50:08 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_bignum	*dec_div(t_bignum *n)
 {
 	t_bignum	*res;
 	int			i;
-	int			a;
 
 	i = -1;
 	res = big_num_create();

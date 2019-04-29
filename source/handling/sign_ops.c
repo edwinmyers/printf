@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sign_ops.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nparker <nparker@student.42.fr>            +#+  +:+       +#+        */
+/*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/22 18:37:39 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/24 13:14:35 by nparker          ###   ########.fr       */
+/*   Updated: 2019/04/29 17:47:24 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char		f_get_sign(t_fs *form_string, long double arg)
 {
 	char	sign;
 
+	sign = 0;
 	if (arg >= 0 && ft_strchr(form_string->flags, '+'))
 		sign = '+';
 	else if (arg > 0)
@@ -29,6 +30,7 @@ char		get_sign(t_fs *form_string, long long arg)
 {
 	char	sign;
 
+	sign = 0;
 	if (arg >= 0 && ft_strchr(form_string->flags, '+'))
 		sign = '+';
 	else if (arg > 0)

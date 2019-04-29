@@ -6,13 +6,13 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/20 11:15:10 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/26 21:39:34 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:44:53 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void		num_insert(char **substr, long long arg, t_fs *form_string)
+void		num_insert(char **substr, long long arg)
 {
 	char	*number;
 
@@ -30,7 +30,7 @@ void		d_handler(t_fs *form_string, long long arg, char **format)
 	substr = NULL;
 	cast(form_string, &arg);
 	sign = get_sign(form_string, arg);
-	num_insert(&substr, arg, form_string);
+	num_insert(&substr, arg);
 	if (form_string->precision > 0)
 		precision_insert(form_string, &substr);
 	if (sign == '-')

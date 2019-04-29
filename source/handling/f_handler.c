@@ -6,14 +6,14 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 20:10:34 by vice-wra          #+#    #+#             */
-/*   Updated: 2019/04/26 22:41:54 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:49:55 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
 char			*put_bignum_strings_into_one(t_bignum *num,
-											t_fs *form_string, char sign)
+											t_fs *form_string)
 {
 	char	*str;
 	char	*temp;
@@ -56,7 +56,7 @@ void			f_handler(t_fs *form_string, double arg, char **format)
 	num = get_the_bits(arg);
 	bin_to_dec(num);
 	rround(&num, form_string->precision);
-	str = put_bignum_strings_into_one(num, form_string, sign);
+	str = put_bignum_strings_into_one(num, form_string);
 	add_sign_float(sign, &str, form_string);
 	width_insert(form_string, &str);
 	if (ft_strchr(form_string->flags, '#') && form_string->precision == 0)

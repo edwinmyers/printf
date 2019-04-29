@@ -6,18 +6,19 @@
 /*   By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 13:28:20 by jblue-da          #+#    #+#             */
-/*   Updated: 2019/04/27 17:50:50 by vice-wra         ###   ########.fr       */
+/*   Updated: 2019/04/29 17:49:02 by vice-wra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H_
 # define FT_PRINTF_H_
-
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdarg.h>
+
+short g_crutch;
 
 typedef struct		s_node
 {
@@ -130,7 +131,7 @@ void			width_insert_left(char **new_str,
 void			width_insert_right(char **new_str,
 					char *substr, int width, char c);
 void			add_sign(char **str, char sign);
-void			num_insert(char **substr, long long arg, t_fs *form_string);
+void			num_insert(char **substr, long long arg);
 void			u_cast(t_fs *form_string, unsigned long long *arg);
 char			*dec_to_octal(unsigned long long n);
 void			handler_item(va_list *args, t_fs *form_string, char **format);
@@ -144,7 +145,7 @@ char			*cust_strdup_free(t_string *src);
 char			*cust_strjoin_left(t_string *s1, char *s2);
 char			*cust_strjoin_right(char *s1, t_string *s2);
 char			*put_bignum_strings_into_one(t_bignum *num,
-											t_fs *form_string, char sign);
+											t_fs *form_string);
 
 /*
 **Char_vec function
@@ -250,7 +251,7 @@ int					find_exclusion_of_letter(char *str, char letter, char letter1, char lett
 char				*ft_utoa(unsigned long long n);
 int					ft_isflag(int c);
 char				*ft_strjoin_free(char *s1, char *s2, int n);
-void				str_forward(char **s1);
+void				move_char_pointer(char **s1);
 char				*ft_strchr_free(char *str, int c);
 
 /*
