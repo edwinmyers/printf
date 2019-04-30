@@ -6,7 +6,7 @@
 #    By: nparker <nparker@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:24:28 by nparker           #+#    #+#              #
-#    Updated: 2019/04/30 13:23:48 by nparker          ###   ########.fr        #
+#    Updated: 2019/04/30 13:54:25 by nparker          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ SRC :=	cust_str_ops.c\
 		o_handler.c\
 		precision_handler.c \
 		pr_handler.c\
-		pr_handler.c \
 		p_handler.c\
 		sign_ops.c \
 		s_handler.c\
@@ -61,7 +60,6 @@ SRC :=	cust_str_ops.c\
 		x_handler.c \
 		bignum_create.c\
 		bignum_create_by_str.c \
-		bignum_create_by_str.c\
 		bignum_destroy.c \
 		bin_div.c\
 		bin_mult.c \
@@ -100,7 +98,6 @@ SRC :=	cust_str_ops.c\
 		store.c \
 		find_exclusion.c\
 		ft_abs.c \
-		ft_abs.c\
 		ft_bzero.c \
 		ft_count_digits.c\
 		ft_dec_to_hex.c \
