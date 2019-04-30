@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vice-wra <vice-wra@student.42.fr>          +#+  +:+       +#+         #
+#    By: ivan <ivan@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/03/26 13:24:28 by nparker           #+#    #+#              #
-#    Updated: 2019/04/29 18:05:55 by vice-wra         ###   ########.fr        #
+#    Updated: 2019/04/30 09:50:59 by ivan             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,81 +16,89 @@ NAME := libftprintf.a
 
 FLAGS := -Wall -Wextra -Werror
 
-SRC_DIR := source/string/cust_str_ops.c source/string/str_at.c \
-	source/string/str_create_custstr.c source/string/str_create_size.c \
-	source/string/str_create_str.c source/string/str_custjoin.c \
-	source/string/str_cut.c source/string/str_destroy.c \
-	source/string/str_len.c source/string/str_print.c \
-	source/string/str_pushchar.c source/string/str_pushstr.c \
-	source/string/str_push_cs.c source/string/str_resize.c \
-	source/string/str_rev.c source/string/to_cstr.c \
-	source/fs_vector/fs_copy.c source/fs_vector/fs_destroy.c \
-	source/fs_vector/fs_init.c source/fs_vector/fs_vector_create.c \
-	source/fs_vector/fs_vector_destroy.c source/fs_vector/fs_vector_length.c \
-	source/fs_vector/fs_vector_push_back.c source/fs_vector/fs_vector_resize.c \
-	source/handling/cast.c source/handling/c_handler.c \
-	source/handling/d_handler.c source/handling/f_handler.c \
-	source/handling/handler.c source/handling/lf_handler.c \
-	source/handling/o_handler.c source/handling/precision_handler.c \
-	source/handling/pr_handler.c source/handling/pr_handler.c \
-	source/handling/p_handler.c source/handling/sign_ops.c \
-	source/handling/s_handler.c source/handling/u_handler.c \
-	source/handling/width_handler.c source/handling/x_handler.c \
-	source/longarifm/bignum_create.c source/longarifm/bignum_create_by_str.c \
-	source/longarifm/bignum_create_by_str.c source/longarifm/bignum_destroy.c \
-	source/longarifm/bin_div.c source/longarifm/bin_mult.c \
-	source/longarifm/bin_sum.c source/longarifm/bin_to_dec.c \
-	source/longarifm/dec_div.c source/longarifm/dec_mult.c \
-	source/longarifm/dec_sum.c source/longarifm/get_bits.c \
-	source/longarifm/pos_pow.c source/longarifm/round.c \
-	source/longarifm/swap_comp_str.c \
-	source/parsing/arr_zero.c source/parsing/find_flags.c \
-	source/parsing/get_flags.c source/parsing/get_fs.c \
-	source/parsing/get_precision.c source/parsing/get_size.c \
-	source/parsing/get_type.c source/parsing/get_width.c \
-	source/parsing/overflow_handle.c source/parsing/parse.c \
-	source/parsing/process_fs.c \
-	source/preparation/prepare.c source/preparation/prepare_flags.c \
-	source/preparation/prepare_precision.c source/preparation/prepare_size.c \
-	source/queue/fetch.c source/queue/iterators.c \
-	source/queue/queue_create.c source/queue/queue_destroy.c \
-	source/queue/queue_is_empty.c source/queue/queue_len.c \
-	source/queue/queue_pop.c source/queue/queue_push.c \
-	source/queue/store.c \
-	source/support_functions/find_exclusion.c source/support_functions/ft_abs.c \
-	source/support_functions/ft_abs.c source/support_functions/ft_bzero.c \
-	source/support_functions/ft_count_digits.c source/support_functions/ft_dec_to_hex.c \
-	source/support_functions/ft_dec_to_oct.c source/support_functions/ft_isalnum.c \
-	source/support_functions/ft_isalpha.c source/support_functions/ft_isdigit.c \
-	source/support_functions/ft_ltoa.c source/support_functions/ft_max.c \
-	source/support_functions/ft_pow.c source/support_functions/ft_rev_str.c \
-	source/support_functions/ft_strcat.c source/support_functions/ft_strchr.c \
-	source/support_functions/ft_strchr_free.c source/support_functions/ft_strcmp.c \
-	source/support_functions/ft_strdel.c source/support_functions/ft_strdup.c \
-	source/support_functions/ft_strjoin.c source/support_functions/ft_strjoin_free.c \
-	source/support_functions/ft_strlen.c source/support_functions/ft_strncmp.c \
-	source/support_functions/ft_strnew.c source/support_functions/ft_strpush.c \
-	source/support_functions/ft_strsub.c source/support_functions/ft_sym_del.c \
-	source/support_functions/ft_toupper.c source/support_functions/ft_utoa.c \
-	source/support_functions/str_forward.c \
-	source/ft_printf.c \
+SRC_DIR := source/string/ source/fs_vector/ source/handling/ source/longarifm/ \
+			source/parsing/ source/preparation/ source/queue/ source/support_functions/ \
+			source/
+
+SRC := cust_str_ops.c str_at.c \
+	str_create_custstr.c str_create_size.c \
+	str_create_str.c str_custjoin.c \
+	str_cut.c str_destroy.c \
+	str_len.c str_print.c \
+	str_pushchar.c str_pushstr.c \
+	str_push_cs.c str_resize.c \
+	str_rev.c to_cstr.c \
+	fs_copy.c fs_destroy.c \
+	fs_init.c fs_vector_create.c \
+	fs_vector_destroy.c fs_vector_length.c \
+	fs_vector_push_back.c fs_vector_resize.c \
+	cast.c c_handler.c \
+	d_handler.c f_handler.c \
+	handler.c lf_handler.c \
+	o_handler.c precision_handler.c \
+	pr_handler.c pr_handler.c \
+	p_handler.c sign_ops.c \
+	s_handler.c u_handler.c \
+	width_handler.c x_handler.c \
+	bignum_create.c bignum_create_by_str.c \
+	bignum_create_by_str.c bignum_destroy.c \
+	bin_div.c bin_mult.c \
+	bin_sum.c bin_to_dec.c \
+	dec_div.c dec_mult.c \
+	dec_sum.c get_bits.c \
+	pos_pow.c round.c \
+	swap_comp_str.c \
+	arr_zero.c find_flags.c \
+	get_flags.c get_fs.c \
+	get_precision.c get_size.c \
+	get_type.c get_width.c \
+	overflow_handle.c parse.c \
+	process_fs.c \
+	prepare.c prepare_flags.c \
+	prepare_precision.c prepare_size.c \
+	fetch.c iterators.c \
+	queue_create.c queue_destroy.c \
+	queue_is_empty.c queue_len.c \
+	queue_pop.c queue_push.c \
+	store.c \
+	find_exclusion.c ft_abs.c \
+	ft_abs.c ft_bzero.c \
+	ft_count_digits.c ft_dec_to_hex.c \
+	ft_dec_to_oct.c ft_isalnum.c \
+	ft_isalpha.c ft_isdigit.c \
+	ft_ltoa.c ft_max.c \
+	ft_pow.c ft_rev_str.c \
+	ft_strcat.c ft_strchr.c \
+	ft_strchr_free.c ft_strcmp.c \
+	ft_strdel.c ft_strdup.c \
+	ft_strjoin.c ft_strjoin_free.c \
+	ft_strlen.c ft_strncmp.c \
+	ft_strnew.c ft_strpush.c \
+	ft_strsub.c ft_sym_del.c \
+	ft_toupper.c ft_utoa.c \
+	str_forward.c \
+	ft_printf.c \
 
 OBJ_DIR := objects
 
-SEARCH_WILD := $(addsuffix *.c, $(SRC_DIR))
-
 INCLUDES := source/ft_printf.h
 
-OBJECTS := $(notdir $(patsubst %.c,%.o,$(wildcard $(SEARCH_WILD))))
+OBJECTS := $(SRC:.c=.o)
+SOURCES := $(addprefix $(SRC_DIR),$(SRC))
+OBJECTS := $(addprefix $(OBJ_DIR)/, $(SRC:.c=.o))
 
-SOURCES := $(wildcard $(SEARCH_WILD))
+all: directory $(NAME)
 
-all:$(NAME)
-
-$(NAME):
+$(NAME): $(OBJ_DIR) $(OBJS)
 	@$(CC)  $(FLAGS) -g -c $(SOURCES) -I $(INCLUDES)
 	@ar rc $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
+
+directory: $(OBJ_DIR)
+
+$(OBJ_DIR):
+	@mkdir -p $(OBJ_DIR)
+
 clean:
 	@rm -rf $(OBJECTS)
 
